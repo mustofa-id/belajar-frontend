@@ -1,0 +1,13 @@
+body {
+    font-family: sans-serif;
+}
+
+h2, h3 {
+    color: #00a2c6;
+}
+
+footer {
+    color: white;
+    padding: 20px;
+    background-color: #00a2c6;
+}
