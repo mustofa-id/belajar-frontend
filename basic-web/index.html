@@ -3,15 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Kota Bandung</title>
-    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/style.css" />
   </head>
   <body>
     <header>
-      <h1>Bandung</h1>
-      <p>
-        Kota metropolitan terbesar di Provinsi Jawa Barat, sekaligus menjadi ibu
-        kota provinsi tersebut.
-      </p>
+      <div class="jumbotron">
+        <h1>Bandung</h1>
+        <p>
+          Kota metropolitan terbesar di Provinsi Jawa Barat, sekaligus menjadi
+          ibu kota provinsi tersebut.
+        </p>
+      </div>
       <nav>
         <ul>
           <li><a href="#sejarah">Sejarah</a></li>
@@ -23,9 +25,10 @@
 
     <main>
       <div id="content">
-        <article id="sejarah">
+        <article id="sejarah" class="card">
           <h2>Sejarah</h2>
           <img
+            class="featured-images"
             src="assets/image/history.jpg"
             alt="Gambar sejarah kota Bandung"
           />
@@ -52,9 +55,10 @@
           </p>
         </article>
 
-        <article id="geografis">
+        <article id="geografis" class="card">
           <h2>Geografis</h2>
           <img
+            class="featured-images"
             src="assets/image/geografis.jpg"
             alt="Gambar geografis kota Bandung"
           />
@@ -77,7 +81,7 @@
           </p>
         </article>
 
-        <article id="wisata">
+        <article id="wisata" class="card">
           <h2>Wisata</h2>
           <p>
             Sejak dibukanya Jalan Tol Cipularang, kota Bandung telah menjadi
@@ -89,6 +93,11 @@
 
           <section>
             <h3>Farm House Lembang</h3>
+            <img
+              class="featured-images"
+              src="assets/image/farm-house.jpg"
+              alt="Farm house lembang"
+            />
             <p>
               Berada di jalur utama Bandung-Lembang, Farm House menjadi objek
               wisata yang tidak pernah sepi pengunjung. Selain karena letaknya
@@ -99,6 +108,11 @@
 
           <section>
             <h3>Observatorium Bosscha</h3>
+            <img
+              class="featured-images"
+              src="assets/image/bosscha.jpg"
+              alt="Observatorium bosscha"
+            />
             <p>
               Memiliki beberapa teleskop, antara lain, Refraktor Ganda Zeiss,
               Schmidt Bimasakti, Refraktor Bamberg, Cassegrain GOTO, dan
@@ -116,7 +130,7 @@
       </div>
 
       <aside>
-        <article class="profile">
+        <article class="profile card">
           <header>
             <h2>Kota Bandung</h2>
             <p>Kota Kembang Paris Van Java</p>
