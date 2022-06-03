@@ -15,6 +15,7 @@ body {
 
 .display h1 {
   font-size: 3rem;
+  font-family: monospace;
 }
 
 .flex-col {
