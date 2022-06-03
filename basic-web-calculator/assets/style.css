@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.display {
+  background-color: darkolivegreen;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid black;
+}
+
+.display h1 {
+  font-size: 3rem;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.calc-button {
+  flex-basis: 25%;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 40px;
+  border: 1px solid black;
+  background: -webkit-linear-gradient(top, #d2d2d2, #ddd);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.calc-button:hover {
+  opacity: 0.75;
+}
+
+.calc-button:active {
+  opacity: 0.5;
+}
+
+.double {
+  flex-basis: 50%;
+}
+
+.operator,
+.plus-minus,
+.equals {
+  background: darkgoldenrod;
+}
+
+@media screen and (max-width: 513px) {
+  .calc-button {
+    padding: 10px;
+  }
+}
