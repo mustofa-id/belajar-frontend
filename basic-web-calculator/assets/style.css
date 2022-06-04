@@ -92,5 +92,13 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: darkgrey;
+  background-color: #eee;
+}
+
+p.warning {
+  color: darkorange;
+  font-style: italic;
+  padding: 4px 6px;
+  font-size: small;
+  text-align: center;
 }

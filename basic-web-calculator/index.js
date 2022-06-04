@@ -46,11 +46,20 @@ function handleOperator(op) {
 
 function performCalc() {
   if (!calculator.operator || !calculator.firstNumber) return
-  calculator.displayNumber = operators[calculator.operator](
+  const calcResult = operators[calculator.operator](
     calculator.firstNumber,
     calculator.displayNumber
   )
+  // add history
+  pushHistory({
+    firstNumber: calculator.firstNumber,
+    operator: calculator.operator,
+    secondNumber: calculator.displayNumber,
+    result: calcResult,
+  })
+  calculator.displayNumber = calcResult
   calculator.waitingForSecondNumber = false
+  renderHistory()
 }
 
 document.querySelectorAll(".calc-button").forEach((b) => {
