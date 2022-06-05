@@ -193,8 +193,9 @@ aside.profile {
 }
 
 .profile-info img {
-	width: 156px;
+	width: 136px;
 	border-radius: 50%;
+	border: solid 6px #333;
 }
 
 div.socials {
