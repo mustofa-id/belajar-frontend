@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+/* css reset taken from: https://twitter.com/eladsc/status/1356550200140189697 */
+/* -- start css reset */
+* {
+	all: unset;
+	display: revert;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+/* -- end css reset */
+
+*::placeholder {
+	font-weight: initial;
+	color: #bbb;
+}
+
+body {
+	font-family: 'Patrick Hand', cursive;
+	color: #333;
+	background-color: #f6fbf4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Patrick Hand SC', cursive;
+}
+
+h1 {
+	font-size: 2.5rem;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+header,
+main,
+footer {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+main {
+	display: flex;
+	flex-direction: row-reverse;
+	border: solid 1px #333;
+	height: 85vh;
+}
+
+footer {
+	text-align: center;
+	margin-top: 6px;
+}
+
+main #content {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 8px;
+	overflow: auto;
+	flex-basis: 75%;
+	align-items: flex-start;
+	align-content: flex-start;
+	row-gap: 2px;
+}
+
+.border-hand-drawn {
+	border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.nav-main li {
+	display: inline;
+}
+
+.nav-main button {
+	display: inline-flex;
+	align-items: center;
+	padding: 6px 12px;
+	cursor: pointer;
+	border: solid 1px transparent;
+}
+
+.nav-main button:hover {
+	color: #5fd068;
+	border-color: #5fd068;
+}
+
+.nav-main button:active {
+	background-color: #5fd068;
+	color: white;
+}
+
+.content-item {
+	padding: 8px;
+	border: solid 2px #333;
+	flex-basis: 50%;
+	height: 110px;
+	transition: all 0.2s ease;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.content-item:hover {
+	box-shadow: 8px 12px 24px -4px hsla(0, 0%, 0%, 0.2);
+}
+
+.content-item button:hover {
+	color: #5fd068;
+}
+
+.content-item-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.content-item-header input {
+	width: 100%;
+	font-size: 1.2rem;
+	font-weight: 700;
+	font-family: 'Patrick Hand SC', cursive;
+}
+
+.content-item-header button {
+	margin-right: 6px;
+	cursor: pointer;
+}
+
+.content-item-body {
+	width: 100%;
+	height: max-content;
+	overflow: hidden;
+}
+
+.content-item-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.content-item-footer em {
+	font-style: italic;
+	color: #666;
+	font-size: small;
+}
+
+.content-item-footer button {
+	color: #666;
+	cursor: pointer;
+	font-size: medium;
+}
+
+.content-item button.delete {
+	visibility: hidden;
+}
+
+.content-item:hover button.delete {
+	visibility: visible;
+}
+
+aside.profile {
+	display: flex;
+	padding: 8px;
+	border-right: solid 1px #333;
+	flex-basis: 25%;
+	height: 100%;
+}
+
+.profile-info {
+	margin: auto;
+}
+
+#storage-unsupported-banner {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	align-items: center;
+	background: orange;
+	color: white;
+	width: 200px;
+	line-height: 1;
+	padding: 4px 6px;
+	margin: 6px;
+	border: solid 1px #333;
+	box-shadow: 8px 12px 10px 0 hsla(0, 0%, 0%, 0.2);
+}

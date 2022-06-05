@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
+		<title>Rencana-In!</title>
+	</head>
+	<body>
+		<header>
+			<h1>Rencana-In!</h1>
+			<nav class="nav-main">
+				<ul>
+					<li>
+						<button
+							id="btn-add-new"
+							class="border-hand-drawn"
+							title="Buat rencana baru"
+							onclick="addPlan()"
+						>
+							<span class="material-symbols-outlined">add</span>
+							Baru
+						</button>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="border-hand-drawn">
+			<div id="content">
+				<!-- start item template -->
+				<article
+					class="content-item border-hand-drawn"
+					style="visibility: hidden"
+				>
+					<section class="content-item-header">
+						<input
+							type="text"
+							spellcheck="false"
+							placeholder="Ketik judul rencana"
+						/>
+						<button class="material-symbols-outlined done">
+							radio_button_unchecked
+						</button>
+					</section>
+					<textarea
+						class="content-item-body"
+						rows="2"
+						spellcheck="false"
+						placeholder="Ketik deskripsi tentang rencana"
+					></textarea>
+					<span class="content-item-footer">
+						<em>05 Jun 2022 - 09.11 WIB</em>
+						<button
+							class="material-symbols-outlined delete"
+							title="Hapus rencana"
+						>
+							delete
+						</button>
+					</span>
+				</article>
+				<!-- end item template -->
+			</div>
+			<aside class="profile">
+				<article class="profile-info">
+					<h2>Habib Mustofa</h2>
+				</article>
+			</aside>
+			<div id="storage-unsupported-banner" class="border-hand-drawn">
+				<span
+					class="material-symbols-outlined"
+					style="margin-right: 4px"
+				>
+					warning
+				</span>
+				<p>
+					Browser ini tidak mendukung Storage API. Data Rencana tidak
+					akan tersimpan.
+				</p>
+			</div>
+		</main>
+		<footer>
+			<p>
+				Rencana-In! &#169; 2022 - Submission Belajar Dasar Pemrograman
+				Web di Dicoding Academy
+			</p>
+		</footer>
+		<script src="index.js"></script>
+	</body>
+</html>
