@@ -154,6 +154,7 @@ function _createPlanItemElement(plan) {
  * Persist Plan items to LocalStorage
  */
 function _persistPlans() {
+	if (!storageSupported) return;
 	const lsValue = JSON.stringify(plans || []);
 	localStorage.setItem(PLANS_LS_KEY, lsValue);
 }
