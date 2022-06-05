@@ -184,6 +184,33 @@ aside.profile {
 
 .profile-info {
 	margin: auto;
+	text-align: center;
+	line-height: 1.2;
+	max-width: 480px;
+}
+
+.profile-info img {
+	width: 156px;
+	border-radius: 50%;
+}
+
+div.socials {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	gap: 4px;
+	padding: 8px;
+}
+
+.profile-info a {
+	border: solid 1px #333;
+	padding: 1px 6px;
+	cursor: pointer;
+}
+
+.profile-info a:hover {
+	color: #5fd068;
+	border-color: #5fd068;
 }
 
 #storage-unsupported-banner {
