@@ -37,8 +37,8 @@ const samplePLans = [
 	},
 	{
 		id: _generateId(),
-		title: 'Lorem ipsum dolor',
-		desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, fuga commodi. Saepe aspernatur dolor eos quasi!`,
+		title: 'Isi ulang air galon',
+		desc: '',
 		done: false,
 		createdAt: Date.now(),
 	},
