@@ -50,6 +50,7 @@ main,
 footer {
 	max-width: 1024px;
 	margin: 0 auto;
+	padding: 0 8px;
 }
 
 header {
@@ -60,14 +61,14 @@ header {
 
 main {
 	display: flex;
-	flex-direction: row-reverse;
-	border: solid 1px #333;
-	height: 85vh;
+	flex-direction: column;
 }
 
 footer {
 	text-align: center;
 	margin-top: 6px;
+	line-height: 1;
+	height: 50px;
 }
 
 main #content {
@@ -75,10 +76,10 @@ main #content {
 	flex-wrap: wrap;
 	margin: 8px;
 	overflow: auto;
-	flex-basis: 75%;
 	align-items: flex-start;
 	align-content: flex-start;
 	row-gap: 2px;
+	height: 100vh;
 }
 
 .border-hand-drawn {
@@ -110,10 +111,10 @@ main #content {
 .content-item {
 	padding: 8px;
 	border: solid 2px #333;
-	flex-basis: 50%;
 	height: 110px;
 	transition: all 0.2s ease;
 	display: flex;
+	width: 100%;
 	flex-direction: column;
 	justify-content: space-around;
 }
@@ -177,10 +178,7 @@ main #content {
 
 aside.profile {
 	display: flex;
-	padding: 8px;
-	border-right: solid 1px #333;
-	flex-basis: 25%;
-	height: 100%;
+	margin: 8px;
 }
 
 .profile-info {
@@ -201,4 +199,34 @@ aside.profile {
 	margin: 6px;
 	border: solid 1px #333;
 	box-shadow: 8px 12px 10px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+@media (min-width: 640px) {
+	.content-item {
+		width: 0;
+		flex-basis: 50%;
+	}
+}
+
+@media (min-width: 1024px) {
+	main {
+		border: solid 1px #333;
+		flex-direction: row-reverse;
+	}
+
+	main #content {
+		flex-basis: 75%;
+		height: 84vh;
+	}
+
+	aside.profile {
+		flex-basis: 25%;
+		height: 100%;
+		height: 84vh;
+		border-right: dashed 1px #333;
+	}
+
+	footer {
+		height: 0;
+	}
 }
