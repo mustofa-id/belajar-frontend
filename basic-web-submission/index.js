@@ -6,6 +6,8 @@
  * createdAt: number
  * } Plan } */
 
+const PLANS_LS_KEY = 'plans-items';
+
 const planContainer = document.getElementById('content');
 const planTemplate = planContainer.children[0];
 planTemplate.style.visibility = 'unset';
@@ -30,7 +32,7 @@ const samplePLans = [
 		id: _generateId(),
 		title: 'Kelas web dasar Dicoding',
 		desc: 'Lanjutkan materi kursus kelas Web Dasar di Dicoding. Semangat!',
-		done: false,
+		done: true,
 		createdAt: Date.now(),
 	},
 	{
@@ -43,7 +45,7 @@ const samplePLans = [
 ];
 
 /** @type {Plan[]} */
-let plans = [...samplePLans];
+let plans = [];
 
 /**
  * Add/prepare new Plan
@@ -117,17 +119,17 @@ function _createPlanItemElement(plan) {
 	/** @type {HTMLInputElement} */
 	const title = container.getElementsByTagName('input')[0];
 	title.value = plan.title;
-	title.oninput = (e) => {
+	title.oninput = _debounce((e) => {
 		plan.title = e.target.value;
-		console.log('title changed:', plan.title);
-	};
+		_persistPlans();
+	});
 	/** @type {HTMLTextAreaElement} */
 	const desc = container.getElementsByTagName('textarea')[0];
 	desc.value = plan.desc;
-	desc.oninput = (e) => {
+	desc.oninput = _debounce((e) => {
 		plan.desc = e.target.value;
-		console.log('desc changed:', plan.desc);
-	};
+		_persistPlans();
+	});
 	/** @type {HTMLElement} */
 	const time = container.getElementsByTagName('em')[0];
 	time.innerText = new Date(plan.createdAt).toLocaleString();
@@ -151,14 +153,28 @@ function _createPlanItemElement(plan) {
 /**
  * Persist Plan items to LocalStorage
  */
-function _persistPlans() {}
+function _persistPlans() {
+	const lsValue = JSON.stringify(plans || []);
+	localStorage.setItem(PLANS_LS_KEY, lsValue);
+}
 
 /**
  * Load Plan items from LocalStorage
  * @returns {Plan[]}
  */
-function _retrivePlans() {
-	return [];
+function _populatePlans() {
+	// load sample plans data if Storage API unsupported
+	if (!storageSupported) plans = [...samplePLans];
+	// retrive plans from local storage
+	const lsValue = localStorage.getItem(PLANS_LS_KEY);
+	if (!lsValue) {
+		plans = [...samplePLans];
+		// persist sample value to local storage
+		_persistPlans();
+		return;
+	}
+	// load from local storage
+	plans = JSON.parse(lsValue);
 }
 
 /**
@@ -170,4 +186,23 @@ function _generateId() {
 	return Math.random().toString(36).substring(2, 10);
 }
 
+/**
+ * Doubounce function to makes sure that code is only triggered once per user input
+ * taken from: https://www.freecodecamp.org/news/javascript-debounce-example/
+ *
+ * @param {Function} func
+ * @param {number} timeout
+ * @returns Function
+ */
+function _debounce(func, timeout = 800) {
+	let timer;
+	return (...args) => {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			func.apply(this, args);
+		}, timeout);
+	};
+}
+
+_populatePlans();
 renderPlans();
