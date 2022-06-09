@@ -184,9 +184,9 @@ function createBookItemElement(book) {
 			button.title = book.isComplete
 				? 'Batalkan status selesai baca'
 				: 'Tandai buku ini selesai dibaca';
-			button.addEventListener('click', () => finishBook(book));
+			button.onclick = () => finishBook(book);
 		} else if (button.classList.contains('delete')) {
-			button.addEventListener('click', () => deleteBook(book));
+			button.onclick = () => deleteBook(book);
 		}
 	}
 	return container;
