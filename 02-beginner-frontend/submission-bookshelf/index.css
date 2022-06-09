@@ -87,15 +87,7 @@ main #content {
 }
 
 input[type='radio'] {
-	width: 15px;
-	height: 15px;
-	border: solid 1px #333;
-	border-radius: 50%;
-}
-
-input[type='radio']:checked {
-	background-color: #5fd068;
-	border-style: dashed;
+	all: revert;
 }
 
 .border-hand-drawn {
