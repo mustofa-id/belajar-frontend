@@ -14,6 +14,10 @@ bookTemplate.style.visibility = 'unset';
 
 /** @type {HTMLElement} */
 const sidebar = document.getElementsByClassName('sidebar')[0];
+/** @type {HTMLSpanElement} */
+const storageUsedText = document.getElementById('storage-used-text');
+/** @type {HTMLProgressElement} */
+const storageUsedBar = document.getElementById('storage-used');
 
 const storageSupported = typeof localStorage != 'undefined';
 // show unsupport storage banner if storage is not supported by browser
@@ -285,6 +289,9 @@ function renderStorageSize() {
 		lsTotal += valueLength;
 	}
 	lsTotal = (lsTotal / 1024).toFixed(2); // KB
+	storageUsedText.innerText =
+		lsTotal < 100 ? lsTotal + 'KB' : (lsTotal / 1024).toFixed(2) + 'MB';
+	storageUsedBar.value = lsTotal;
 }
 
 /**

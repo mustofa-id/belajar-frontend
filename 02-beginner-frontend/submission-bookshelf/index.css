@@ -86,7 +86,8 @@ main #content {
 	min-height: 100vh;
 }
 
-input[type='radio'] {
+input[type='radio'],
+progress {
 	all: revert;
 }
 
@@ -203,8 +204,6 @@ aside.sidebar.hidden {
 .sidebar > .filter {
 	margin-top: 8px;
 	text-align: center;
-	border-bottom: dotted 1px #333;
-	padding-bottom: 16px;
 }
 
 .sidebar > .filter > .text-search {
@@ -230,6 +229,10 @@ aside.sidebar.hidden {
 	text-align: center;
 	line-height: 1.2;
 	max-width: 480px;
+	border-top: dotted 1px #333;
+	border-bottom: dotted 1px #333;
+	padding: 16px 0;
+	margin: 16px 0;
 }
 
 .sidebar > .about img {
@@ -243,6 +246,17 @@ aside.sidebar.hidden {
 	justify-content: center;
 	gap: 4px;
 	padding: 8px;
+}
+
+.sidebar > .storage {
+	text-align: center;
+	line-height: 1.2;
+}
+
+.sidebar > .storage > div {
+	display: flex;
+	align-items: center;
+	gap: 4px;
 }
 
 a.button-link {
