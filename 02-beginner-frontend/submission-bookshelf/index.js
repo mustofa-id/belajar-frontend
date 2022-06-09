@@ -23,17 +23,24 @@ if (!storageSupported) {
 const sampleBooks = [
 	{
 		id: generateId(),
-		title: 'Sirah Nabawiyah',
-		author: 'Syaikh Shafiyyurrahman Al-Mubarakfuri',
-		year: 1997,
-		isComplete: true,
-	},
-	{
-		id: generateId(),
 		title: 'Atomic Habits',
 		author: 'James Clear',
 		year: 2019,
 		isComplete: false,
+	},
+	{
+		id: generateId(),
+		title: 'The Subtle Art of Not Giving a F*ck',
+		author: 'Mark Manson',
+		year: 2016,
+		isComplete: true,
+	},
+	{
+		id: generateId(),
+		title: 'Sirah Nabawiyah',
+		author: 'Syaikh Shafiyyurrahman Al-Mubarakfuri',
+		year: 1997,
+		isComplete: true,
 	},
 ];
 
