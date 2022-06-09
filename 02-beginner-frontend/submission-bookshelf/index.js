@@ -12,6 +12,9 @@ const booksContainer = document.getElementById('content');
 const bookTemplate = booksContainer.children[0];
 bookTemplate.style.visibility = 'unset';
 
+/** @type {HTMLElement} */
+const sidebar = document.getElementsByClassName('sidebar')[0];
+
 const storageSupported = typeof localStorage != 'undefined';
 // show unsupport storage banner if storage is not supported by browser
 if (!storageSupported) {
@@ -52,6 +55,14 @@ let filterText = null;
 
 /** @type { 'all' | 'uncompleted' | 'completed' } */
 let filterType = 'all';
+
+function showSidebar() {
+	sidebar.classList.remove('hidden');
+}
+
+function hideSidebar() {
+	sidebar.classList.add('hidden');
+}
 
 /**
  * Setup filter elements functionality

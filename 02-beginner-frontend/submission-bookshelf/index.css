@@ -83,9 +83,7 @@ main #content {
 	align-items: flex-start;
 	align-content: flex-start;
 	row-gap: 2px;
-	/* TODO: no overflow if document width lower than 1024px */
-	overflow: auto;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 input[type='radio'] {
@@ -196,10 +194,18 @@ input[name='book-year']::-webkit-inner-spin-button {
 }
 
 aside.sidebar {
-	margin: 8px;
-	border-color: #333;
-	border-top: dashed 1px;
-	padding-top: 16px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #f6fbf4;
+	width: 284px;
+	height: 100%;
+	padding: 8px;
+	box-shadow: 8px 12px 10px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+aside.sidebar.hidden {
+	display: none;
 }
 
 .sidebar > .filter {
@@ -313,16 +319,32 @@ a.button-link {
 
 	main #content {
 		flex-basis: 75%;
+		overflow: auto;
+		min-height: initial;
 		height: 84vh;
 	}
 
 	aside.sidebar {
+		position: initial;
+		top: initial;
+		left: initial;
+		background-color: initial;
+		max-width: initial;
+		margin: 8px;
 		flex-basis: 25%;
-		height: 100%;
 		height: 84vh;
-		border-top: none;
 		padding: 0 8px;
-		border-right: dashed 1px;
+		border-right: dashed 1px #333;
+		box-shadow: none;
+	}
+
+	aside.sidebar.hidden {
+		display: initial;
+	}
+
+	#sidebar-close-button,
+	#sidebar-menu-button {
+		display: none;
 	}
 
 	footer {

@@ -8,7 +8,17 @@
 	</head>
 	<body>
 		<header>
-			<h1>Bookshelf</h1>
+			<h1>
+				<button
+					id="sidebar-menu-button"
+					class="material-symbols-outlined hover"
+					title="Tampilkan sidebar"
+					onclick="showSidebar()"
+				>
+					menu
+				</button>
+				Bookshelf
+			</h1>
 			<nav class="nav-main">
 				<ul>
 					<li>
@@ -76,8 +86,15 @@
 				</article>
 				<!-- end item template -->
 			</div>
-			<!-- TODO: Make this as Drawer in small screen -->
-			<aside class="sidebar">
+			<aside class="sidebar hidden">
+				<button
+					id="sidebar-close-button"
+					class="material-symbols-outlined hover"
+					title="Tutup sidebar"
+					onclick="hideSidebar()"
+				>
+					close
+				</button>
 				<article class="filter">
 					<h2>Filter daftar buku</h2>
 					<div class="text-search border-hand-drawn">
