@@ -106,16 +106,26 @@ function finishBook(book) {
  * @param {Book} book
  */
 function deleteBook(book) {
-	// TODO: custom confirm dialog
-	let ok =
-		book.title || book.author || book.year
-			? // ask before delete if title, author & year are not empty
-			  confirm(`Hapus buku "${book.title}"?`)
-			: true; // delete directly
-	if (ok) {
+	const performDelete = () => {
 		books = books.filter((p) => p.id !== book.id);
 		renderBooks();
 		persistBooks();
+	};
+	if (book.title || book.author || book.year) {
+		// confirm deletion before delete if title, author & year are not empty
+		showConfirmDialog({
+			title: 'Hapus buku',
+			message:
+				'Anda yakin ingin menghapus buku berjudul "' +
+				book.title +
+				'" dengan penulis "' +
+				book.author +
+				'"?',
+			onPositive: performDelete,
+		});
+	} else {
+		// delete directly
+		performDelete();
 	}
 }
 
@@ -190,6 +200,42 @@ function createBookItemElement(book) {
 		}
 	}
 	return container;
+}
+
+/**
+ * Show custom confim dialog
+ * @param {{
+ *  title: string
+ *  message: string
+ *  onPositive: Function
+ * }} options
+ */
+function showConfirmDialog(options) {
+	/** @type {HTMLDivElement} */
+	const dialog = document.getElementById('confirm-dialog-overlay');
+	dialog.style.display = 'flex';
+	/** @type {HTMLHeadingElement} */
+	const h2 = dialog.getElementsByTagName('h2')[0];
+	h2.innerText = options.title;
+	/** @type {HTMLParagraphElement} */
+	const p = dialog.getElementsByTagName('p')[0];
+	p.innerText = options.message;
+	/** @type {HTMLButtonElement[]} */
+	const buttons = dialog.getElementsByTagName('button');
+	// clear everithings on dismiss
+	const dismiss = () => {
+		dialog.style.display = 'none';
+		h2.innerText = '';
+		p.innerText = '';
+		for (const button of buttons) {
+			button.onclick = null;
+		}
+	};
+	for (const button of buttons) {
+		button.onclick =
+			button.name === 'confirm' ? options.onPositive : dismiss;
+	}
+	dialog.onclick = dismiss;
 }
 
 /**
