@@ -150,7 +150,9 @@ function renderBooks() {
 		if (
 			// if filter text not falsy and contains text in book title or -
 			(filterText &&
-				!book.title.toUpperCase().includes(filterText.toUpperCase())) ||
+				!book.title
+					.toUpperCase()
+					.includes(filterText.toUpperCase().trim())) ||
 			// filter type is 'completed' and book is not complete or -
 			(filterType === 'completed' && !book.isComplete) ||
 			// filter type is 'uncompleted' but book is complete -
