@@ -14,7 +14,7 @@
 					<li>
 						<button
 							id="btn-add-new"
-							class="border-hand-drawn"
+							class="border-hand-drawn hover"
 							title="Tambahkan buku baru"
 							onclick="addBook()"
 						>
@@ -41,7 +41,7 @@
 							name="book-title"
 						/>
 						<button
-							class="material-symbols-outlined done"
+							class="material-symbols-outlined hover done"
 							tabindex="-1"
 						>
 							radio_button_unchecked
@@ -67,7 +67,7 @@
 							/>
 						</label>
 						<button
-							class="material-symbols-outlined delete"
+							class="material-symbols-outlined hover delete"
 							title="Hapus buku"
 						>
 							delete
@@ -136,21 +136,21 @@
 					</p>
 					<div class="links">
 						<a
-							class="button-link"
+							class="button-link hover"
 							href="https://www.dicoding.com/users/mustofa-id"
 							target="_blank"
 						>
 							Dicoding
 						</a>
 						<a
-							class="button-link"
+							class="button-link hover"
 							href="https://twitter.com/mustofa_idn"
 							target="_blank"
 						>
 							Twitter
 						</a>
 						<a
-							class="button-link"
+							class="button-link hover"
 							href="https://github.com/mustofa-id"
 							target="_blank"
 						>
@@ -170,6 +170,20 @@
 					Browser ini tidak mendukung Storage API. Data Buku tidak
 					akan tersimpan.
 				</p>
+			</div>
+			<div id="confirm-dialog-overlay">
+				<div id="confirm-dialog" class="border-hand-drawn">
+					<div style="margin: 4px 12px">
+						<h2 id="confirm-dialog-title"></h2>
+						<p id="confirm-dialog-message"></p>
+						<div id="confirm-dialog-actions">
+							<button class="border-hand-drawn hover">
+								Tidak
+							</button>
+							<button class="border-hand-drawn hover">Ya</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</main>
 		<footer>
