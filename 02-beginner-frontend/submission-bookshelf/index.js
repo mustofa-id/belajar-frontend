@@ -175,20 +175,20 @@ function createBookItemElement(book) {
 	}
 
 	/** @type {HTMLButtonElement[]} */
-	const actions = [...container.getElementsByTagName('button')];
-	actions.forEach((btn) => {
-		if (btn.classList.contains('done')) {
-			btn.innerText = book.isComplete
+	const buttons = container.getElementsByTagName('button');
+	for (const button of buttons) {
+		if (button.classList.contains('done')) {
+			button.innerText = book.isComplete
 				? 'task_alt'
 				: 'radio_button_unchecked';
-			btn.title = book.isComplete
+			button.title = book.isComplete
 				? 'Batalkan status selesai baca'
 				: 'Tandai buku ini selesai dibaca';
-			btn.addEventListener('click', () => finishBook(book));
-		} else if (btn.classList.contains('delete')) {
-			btn.addEventListener('click', () => deleteBook(book));
+			button.addEventListener('click', () => finishBook(book));
+		} else if (button.classList.contains('delete')) {
+			button.addEventListener('click', () => deleteBook(book));
 		}
-	});
+	}
 	return container;
 }
 
