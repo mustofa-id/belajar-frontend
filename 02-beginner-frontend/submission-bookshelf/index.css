@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+/* css reset taken from: https://twitter.com/eladsc/status/1356550200140189697 */
+/* -- start css reset */
+* {
+	all: unset;
+	display: revert;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+/* -- end css reset */
+
+*::placeholder {
+	font-weight: initial;
+	color: #bbb;
+}
+
+body {
+	font-family: 'Patrick Hand', cursive;
+	color: #333;
+	background-color: #f6fbf4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Patrick Hand SC', cursive;
+}
+
+h1 {
+	font-size: 2.5rem;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+header,
+main,
+footer {
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 0 8px;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+
+footer {
+	text-align: center;
+	margin-top: 6px;
+	line-height: 1;
+	height: 50px;
+}
+
+button:hover {
+	color: #5fd068;
+}
+
+main #content {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 8px;
+	align-items: flex-start;
+	align-content: flex-start;
+	row-gap: 2px;
+	/* TODO: no overflow if document width lower than 1024px */
+	overflow: auto;
+	height: 100vh;
+}
+
+input[type='radio'] {
+	width: 15px;
+	height: 15px;
+	border: solid 1px #333;
+	border-radius: 50%;
+}
+
+input[type='radio']:checked {
+	background-color: #5fd068;
+	border-style: dashed;
+}
+
+.border-hand-drawn {
+	border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.nav-main li {
+	display: inline;
+}
+
+.nav-main button {
+	display: inline-flex;
+	align-items: center;
+	padding: 6px 12px;
+	cursor: pointer;
+	border: solid 1px transparent;
+}
+
+.nav-main button:hover {
+	border-color: #5fd068;
+}
+
+.nav-main button:active {
+	background-color: #5fd068;
+	color: white;
+}
+
+.content-item {
+	padding: 8px;
+	border: solid 2px #333;
+	height: min-content;
+	transition: all 0.2s ease;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.content-item:hover {
+	box-shadow: 8px 12px 24px -4px hsla(0, 0%, 0%, 0.2);
+}
+
+.content-item label {
+	display: flex;
+	gap: 2px;
+}
+
+.content-item input {
+	width: 100%;
+	text-overflow: ellipsis;
+}
+
+.content-item-header {
+	display: flex;
+	justify-content: space-between;
+	gap: 4px;
+}
+
+.content-item-header input {
+	font-size: 1.2rem;
+	font-weight: 700;
+	font-family: 'Patrick Hand SC', cursive;
+}
+
+.content-item-header button {
+	margin-right: 6px;
+	cursor: pointer;
+}
+
+.content-item-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.content-item-footer button {
+	color: #666;
+	cursor: pointer;
+	font-size: medium;
+}
+
+.content-item button.delete {
+	visibility: hidden;
+}
+
+.content-item:hover button.delete {
+	visibility: visible;
+}
+
+button.delete:hover {
+	color: red;
+}
+
+/* hide number input arrows 
+ * ref: https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp 
+ */
+input[name='book-year']::-webkit-outer-spin-button,
+input[name='book-year']::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+	-moz-appearance: textfield;
+}
+
+aside.sidebar {
+	margin: 8px;
+	border-color: #333;
+	border-top: dashed 1px;
+	padding-top: 16px;
+}
+
+.sidebar > .filter {
+	margin-top: 8px;
+	text-align: center;
+	border-bottom: dotted 1px #333;
+	padding-bottom: 16px;
+}
+
+.sidebar > .filter > .text-search {
+	display: flex;
+	width: 100%;
+	border: solid 1px #333;
+	padding: 2px 4px;
+	text-align: initial;
+}
+
+.sidebar > .filter > .text-search input {
+	width: 100%;
+}
+
+.sidebar > .filter ul {
+	list-style-type: none;
+	text-align: initial;
+	margin: 8px;
+	cursor: pointer;
+}
+
+.sidebar > .about {
+	text-align: center;
+	line-height: 1.2;
+	max-width: 480px;
+}
+
+.sidebar > .about img {
+	width: 136px;
+	color: #333;
+}
+
+.sidebar > .about > .links {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	gap: 4px;
+	padding: 8px;
+}
+
+a.button-link {
+	border: solid 1px #333;
+	padding: 1px 6px;
+	cursor: pointer;
+}
+
+a.button-link:hover {
+	color: #5fd068;
+	border-color: #5fd068;
+}
+
+#storage-unsupported-banner {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	align-items: center;
+	background: orange;
+	color: white;
+	width: 200px;
+	line-height: 1;
+	padding: 4px 6px;
+	margin: 6px;
+	border: solid 1px #333;
+	box-shadow: 8px 12px 10px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+@media (min-width: 640px) {
+	.content-item {
+		width: 0;
+		flex-basis: 50%;
+	}
+}
+
+@media (min-width: 1024px) {
+	main {
+		border: solid 1px #333;
+		flex-direction: row-reverse;
+	}
+
+	main #content {
+		flex-basis: 75%;
+		height: 84vh;
+	}
+
+	aside.sidebar {
+		flex-basis: 25%;
+		height: 100%;
+		height: 84vh;
+		border-top: none;
+		padding: 0 8px;
+		border-right: dashed 1px;
+	}
+
+	footer {
+		height: 0;
+	}
+}
