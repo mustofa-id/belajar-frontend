@@ -265,6 +265,26 @@ function persistBooks() {
 	if (!storageSupported) return;
 	const lsValue = JSON.stringify(books || []);
 	localStorage.setItem(BOOKS_LS_KEY, lsValue);
+	renderStorageSize();
+}
+
+/**
+ * Show remaining local storage size
+ * taken from: https://stackoverflow.com/a/15720835/8299065
+ * Max size of localStorage is 5MB. Explained in module 'Web dasar & untuk Pemula'
+ * ref: https://web.dev/storage-for-the-web/
+ */
+function renderStorageSize() {
+	let lsTotal = 0;
+	let valueLength;
+	for (const key in localStorage) {
+		if (!localStorage.hasOwnProperty(key)) {
+			continue;
+		}
+		valueLength = (localStorage[key].length + key.length) * 2;
+		lsTotal += valueLength;
+	}
+	lsTotal = (lsTotal / 1024).toFixed(2); // KB
 }
 
 /**
@@ -316,3 +336,4 @@ function debounce(func, timeout = 800) {
 initFilterActions();
 populateBooks();
 renderBooks();
+renderStorageSize();
