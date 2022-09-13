@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <title>Kalkulator</title>
-  </head>
-  <body>
-    <main>
-      <div class="flex-col">
-        <div class="display">
-          <h1 id="display-number">0</h1>
-        </div>
-        <div class="flex-row">
-          <div class="calc-button">7</div>
-          <div class="calc-button">8</div>
-          <div class="calc-button">9</div>
-          <div class="calc-button plus-minus">+/-</div>
-        </div>
-        <div class="flex-row">
-          <div class="calc-button">4</div>
-          <div class="calc-button">5</div>
-          <div class="calc-button">6</div>
-          <div class="calc-button operator">-</div>
-        </div>
-        <div class="flex-row">
-          <div class="calc-button">1</div>
-          <div class="calc-button">2</div>
-          <div class="calc-button">3</div>
-          <div class="calc-button operator">+</div>
-        </div>
-        <div class="flex-row">
-          <div class="calc-button clear">CE</div>
-          <div class="calc-button">0</div>
-          <div class="calc-button equals double">=</div>
-        </div>
-      </div>
-      <div class="history">
-        <h2>Riwayat Perhitungan</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Angka pertama</th>
-              <th>Operator</th>
-              <th>Angka kedua</th>
-              <th>Hasil</th>
-            </tr>
-          </thead>
-          <tbody id="history-list"></tbody>
-        </table>
-      </div>
-    </main>
-    <script src="assets/history.js"></script>
-    <script src="index.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="assets/style.css" />
+		<title>Kalkulator</title>
+	</head>
+	<body>
+		<main>
+			<div class="flex-col">
+				<div class="display">
+					<h1 id="display-number">0</h1>
+				</div>
+				<div class="flex-row">
+					<div class="calc-button">7</div>
+					<div class="calc-button">8</div>
+					<div class="calc-button">9</div>
+					<div class="calc-button plus-minus">+/-</div>
+				</div>
+				<div class="flex-row">
+					<div class="calc-button">4</div>
+					<div class="calc-button">5</div>
+					<div class="calc-button">6</div>
+					<div class="calc-button operator">-</div>
+				</div>
+				<div class="flex-row">
+					<div class="calc-button">1</div>
+					<div class="calc-button">2</div>
+					<div class="calc-button">3</div>
+					<div class="calc-button operator">+</div>
+				</div>
+				<div class="flex-row">
+					<div class="calc-button clear">CE</div>
+					<div class="calc-button">0</div>
+					<div class="calc-button equals double">=</div>
+				</div>
+			</div>
+			<div class="history">
+				<h2>Riwayat Perhitungan</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Angka pertama</th>
+							<th>Operator</th>
+							<th>Angka kedua</th>
+							<th>Hasil</th>
+						</tr>
+					</thead>
+					<tbody id="history-list"></tbody>
+				</table>
+			</div>
+		</main>
+		<script src="assets/history.js"></script>
+		<script src="index.js"></script>
+	</body>
 </html>

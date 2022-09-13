@@ -33,22 +33,22 @@ const sampleBooks = [
 		title: 'Atomic Habits',
 		author: 'James Clear',
 		year: 2019,
-		isComplete: false,
+		isComplete: false
 	},
 	{
 		id: generateId(),
 		title: 'The Subtle Art of Not Giving a F*ck',
 		author: 'Mark Manson',
 		year: 2016,
-		isComplete: true,
+		isComplete: true
 	},
 	{
 		id: generateId(),
 		title: 'Sirah Nabawiyah',
 		author: 'Syaikh Shafiyyurrahman Al-Mubarakfuri',
 		year: 1997,
-		isComplete: true,
-	},
+		isComplete: true
+	}
 ];
 
 /** @type {Book[]} */
@@ -103,7 +103,7 @@ function addBook() {
 		title: '',
 		author: '',
 		year: null,
-		isComplete: false,
+		isComplete: false
 	};
 	// add new Book object to the first of books array
 	books.unshift(newBook);
@@ -143,7 +143,7 @@ function deleteBook(book) {
 				'" dengan penulis "' +
 				book.author +
 				'"?',
-			onPositive: performDelete,
+			onPositive: performDelete
 		});
 	} else {
 		// delete directly
@@ -164,10 +164,7 @@ function renderBooks() {
 	for (const book of books) {
 		if (
 			// if filter text not falsy and contains text in book title or -
-			(filterText &&
-				!book.title
-					.toUpperCase()
-					.includes(filterText.toUpperCase().trim())) ||
+			(filterText && !book.title.toUpperCase().includes(filterText.toUpperCase().trim())) ||
 			// filter type is 'completed' and book is not complete or -
 			(filterType === 'completed' && !book.isComplete) ||
 			// filter type is 'uncompleted' but book is complete -
@@ -181,8 +178,7 @@ function renderBooks() {
 		booksContainer.append(el);
 	}
 	if (books.length === skipedElCount) {
-		booksContainer.innerHTML =
-			'<p>Tidak ada data buku yang cocok dengan filter!</p>';
+		booksContainer.innerHTML = '<p>Tidak ada data buku yang cocok dengan filter!</p>';
 	}
 }
 
@@ -212,9 +208,7 @@ function createBookItemElement(book) {
 	const buttons = container.getElementsByTagName('button');
 	for (const button of buttons) {
 		if (button.classList.contains('done')) {
-			button.innerText = book.isComplete
-				? 'task_alt'
-				: 'radio_button_unchecked';
+			button.innerText = book.isComplete ? 'task_alt' : 'radio_button_unchecked';
 			button.title = book.isComplete
 				? 'Batalkan status selesai baca'
 				: 'Tandai buku ini selesai dibaca';
@@ -256,8 +250,7 @@ function showConfirmDialog(options) {
 		}
 	};
 	for (const button of buttons) {
-		button.onclick =
-			button.name === 'confirm' ? options.onPositive : dismiss;
+		button.onclick = button.name === 'confirm' ? options.onPositive : dismiss;
 	}
 	dialog.onclick = dismiss;
 }
@@ -289,8 +282,7 @@ function renderStorageSize() {
 		lsTotal += valueLength;
 	}
 	lsTotal = (lsTotal / 1024).toFixed(2); // KB
-	storageUsedText.innerText =
-		lsTotal < 100 ? lsTotal + 'KB' : (lsTotal / 1024).toFixed(2) + 'MB';
+	storageUsedText.innerText = lsTotal < 100 ? lsTotal + 'KB' : (lsTotal / 1024).toFixed(2) + 'MB';
 	storageUsedBar.value = lsTotal;
 }
 

@@ -26,22 +26,22 @@ const samplePLans = [
 		title: 'Beli amunisi untuk koding',
 		desc: 'Americano tanpa gula 1 cup dan Roti cokelat 2 pcs',
 		done: false,
-		createdAt: Date.now(),
+		createdAt: Date.now()
 	},
 	{
 		id: _generateId(),
 		title: 'Kelas web dasar Dicoding',
 		desc: 'Lanjutkan materi kursus kelas Web Dasar di Dicoding. Semangat!',
 		done: true,
-		createdAt: Date.now(),
+		createdAt: Date.now()
 	},
 	{
 		id: _generateId(),
 		title: 'Isi ulang air galon',
 		desc: '',
 		done: false,
-		createdAt: Date.now(),
-	},
+		createdAt: Date.now()
+	}
 ];
 
 /** @type {Plan[]} */
@@ -58,7 +58,7 @@ function addPlan() {
 		title: '',
 		desc: '',
 		done: false,
-		createdAt: Date.now(),
+		createdAt: Date.now()
 	};
 	// add new Plan object to the first of Plans array
 	plans.unshift(newPlan);
@@ -138,9 +138,7 @@ function _createPlanItemElement(plan) {
 	actions.forEach((btn) => {
 		if (btn.classList.contains('done')) {
 			btn.innerText = plan.done ? 'task_alt' : 'radio_button_unchecked';
-			btn.title = plan.done
-				? 'Batalkan status selesai'
-				: 'Tandai rencana ini selesai';
+			btn.title = plan.done ? 'Batalkan status selesai' : 'Tandai rencana ini selesai';
 			btn.addEventListener('click', () => finishPlan(plan));
 		} else if (btn.classList.contains('delete')) {
 			btn.addEventListener('click', () => deletePlan(plan));

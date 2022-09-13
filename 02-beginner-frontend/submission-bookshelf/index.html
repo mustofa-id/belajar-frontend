@@ -38,10 +38,7 @@
 		<main class="border-hand-drawn">
 			<div id="content">
 				<!-- start item template -->
-				<article
-					class="content-item border-hand-drawn"
-					style="visibility: hidden"
-				>
+				<article class="content-item border-hand-drawn" style="visibility: hidden">
 					<section class="content-item-header">
 						<span class="material-symbols-outlined">book</span>
 						<input
@@ -50,36 +47,20 @@
 							placeholder="Ketik judul buku"
 							name="book-title"
 						/>
-						<button
-							class="material-symbols-outlined hover done"
-							tabindex="-1"
-						>
+						<button class="material-symbols-outlined hover done" tabindex="-1">
 							radio_button_unchecked
 						</button>
 					</section>
 					<label>
 						<span>Oleh:</span>
-						<input
-							type="text"
-							spellcheck="false"
-							placeholder="Nama penulis"
-							name="book-author"
-						/>
+						<input type="text" spellcheck="false" placeholder="Nama penulis" name="book-author" />
 					</label>
 					<span class="content-item-footer">
 						<label>
 							<span>Tahun:</span>
-							<input
-								type="number"
-								spellcheck="false"
-								placeholder="Tahun terbit"
-								name="book-year"
-							/>
+							<input type="number" spellcheck="false" placeholder="Tahun terbit" name="book-year" />
 						</label>
-						<button
-							class="material-symbols-outlined hover delete"
-							title="Hapus buku"
-						>
+						<button class="material-symbols-outlined hover delete" title="Hapus buku">
 							delete
 						</button>
 					</span>
@@ -109,47 +90,31 @@
 					<ul>
 						<li>
 							<label>
-								<input
-									type="radio"
-									name="list-filter-item"
-									value="all"
-								/>
+								<input type="radio" name="list-filter-item" value="all" />
 								<span>Semua daftar buku</span>
 							</label>
 						</li>
 						<li>
 							<label>
-								<input
-									type="radio"
-									name="list-filter-item"
-									value="uncompleted"
-								/>
+								<input type="radio" name="list-filter-item" value="uncompleted" />
 								<span>Belum selesai dibaca</span>
 							</label>
 						</li>
 						<li>
 							<label>
-								<input
-									type="radio"
-									name="list-filter-item"
-									value="completed"
-								/>
+								<input type="radio" name="list-filter-item" value="completed" />
 								<span>Selesai dibaca</span>
 							</label>
 						</li>
 					</ul>
 				</article>
 				<article class="about">
-					<img
-						src="images/book.svg"
-						alt="Book logo by Google Symbols"
-					/>
+					<img src="images/book.svg" alt="Book logo by Google Symbols" />
 					<h2>Tentang</h2>
 					<p>
-						Bookshelf adalah aplikasi berbasis web untuk mencatat
-						data buku. Dibuat oleh Habib Mustofa sebagai proyek
-						Submission Belajar Membuat Front-End Web untuk Pemula di
-						Dicoding Academy.
+						Bookshelf adalah aplikasi berbasis web untuk mencatat data buku. Dibuat oleh Habib
+						Mustofa sebagai proyek Submission Belajar Membuat Front-End Web untuk Pemula di Dicoding
+						Academy.
 					</p>
 					<div class="links">
 						<a
@@ -159,18 +124,10 @@
 						>
 							Dicoding
 						</a>
-						<a
-							class="button-link hover"
-							href="https://twitter.com/mustofa_idn"
-							target="_blank"
-						>
+						<a class="button-link hover" href="https://twitter.com/mustofa_idn" target="_blank">
 							Twitter
 						</a>
-						<a
-							class="button-link hover"
-							href="https://github.com/mustofa-id"
-							target="_blank"
-						>
+						<a class="button-link hover" href="https://github.com/mustofa-id" target="_blank">
 							Github
 						</a>
 					</div>
@@ -185,16 +142,8 @@
 				</article>
 			</aside>
 			<div id="storage-unsupported-banner" class="border-hand-drawn">
-				<span
-					class="material-symbols-outlined"
-					style="margin-right: 4px"
-				>
-					warning
-				</span>
-				<p>
-					Browser ini tidak mendukung Storage API. Data Buku tidak
-					akan tersimpan.
-				</p>
+				<span class="material-symbols-outlined" style="margin-right: 4px"> warning </span>
+				<p>Browser ini tidak mendukung Storage API. Data Buku tidak akan tersimpan.</p>
 			</div>
 			<div id="confirm-dialog-overlay">
 				<div id="confirm-dialog" class="border-hand-drawn">
@@ -202,15 +151,8 @@
 						<h2></h2>
 						<p></p>
 						<div id="confirm-dialog-actions">
-							<button class="border-hand-drawn hover">
-								Tidak
-							</button>
-							<button
-								class="border-hand-drawn hover"
-								name="confirm"
-							>
-								Ya
-							</button>
+							<button class="border-hand-drawn hover">Tidak</button>
+							<button class="border-hand-drawn hover" name="confirm">Ya</button>
 						</div>
 					</div>
 				</div>
