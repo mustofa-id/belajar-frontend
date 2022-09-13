@@ -1,4 +1,4 @@
-const clubs = [
+export default [
 	{
 		name: 'Arsenal',
 		stadium: 'Emirates Stadium',
