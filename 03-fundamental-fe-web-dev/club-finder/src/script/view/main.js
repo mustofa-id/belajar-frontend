@@ -1,9 +1,9 @@
 import '../component/app-bar.js';
+import '../component/search-bar.js';
 import DataSource from '../data/data-source.js';
 
 export default function () {
-	const searchElement = document.querySelector('#searchElement');
-	const buttonSearchElement = document.querySelector('#searchButtonElement');
+	const searchElement = document.getElementsByTagName('search-bar')[0];
 	const clubListElement = document.querySelector('#clubList');
 
 	const onButtonSearchClicked = async () => {
@@ -36,5 +36,5 @@ export default function () {
 		clubListElement.innerHTML += `<h2 class="placeholder"> ${message} </h2>`;
 	};
 
-	buttonSearchElement.addEventListener('click', onButtonSearchClicked);
+	searchElement.onSearch = onButtonSearchClicked;
 }
