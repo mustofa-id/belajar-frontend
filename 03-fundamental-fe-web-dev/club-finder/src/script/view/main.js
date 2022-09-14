@@ -1,3 +1,4 @@
+import '../component/app-bar.js';
 import DataSource from '../data/data-source.js';
 
 export default function () {
