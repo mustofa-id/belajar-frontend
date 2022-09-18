@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import moment from 'moment';
+import './index.css';
 
 const displayTime = () => {
 	moment.locale('id');
