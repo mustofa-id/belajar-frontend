@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "webpack",
-		"start": "http-server ."
+		"dev": "webpack serve"
 	},
 	"keywords": [],
 	"author": "",
@@ -21,7 +21,8 @@
 		"@babel/preset-env": "^7.19.1",
 		"babel-loader": "^8.2.5",
 		"css-loader": "^6.7.1",
-		"http-server": "^14.1.1",
-		"style-loader": "^3.3.1"
+		"html-webpack-plugin": "^5.5.0",
+		"style-loader": "^3.3.1",
+		"webpack-dev-server": "^4.11.0"
 	}
 }

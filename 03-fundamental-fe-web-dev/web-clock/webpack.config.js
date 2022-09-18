@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 /** @type {import('webpack').Configuration} */
@@ -8,6 +9,14 @@ const config = {
 		filename: 'bundle.js'
 	},
 	mode: 'production',
+	devServer: {
+		client: {
+			overlay: {
+				errors: true,
+				warnings: false
+			}
+		}
+	},
 	module: {
 		rules: [
 			{
@@ -27,7 +36,13 @@ const config = {
 				]
 			}
 		]
-	}
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: './src/template.html',
+			filename: 'index.html'
+		})
+	]
 };
 
 module.exports = config;
