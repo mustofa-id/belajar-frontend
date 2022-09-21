@@ -1,68 +1,70 @@
 const apiUrl = 'https://books-api.dicoding.dev';
 
 function main() {
-	const getBook = () => {
-		const xhr = new XMLHttpRequest();
-		xhr.onload = function () {
-			const responseJson = JSON.parse(this.responseText);
+	const getBook = async () => {
+		try {
+			const response = await fetch(`${apiUrl}/list`);
+			const responseJson = await response.json();
 			if (responseJson.error) {
 				showResponseMessage(responseJson.message);
 			} else {
 				renderAllBooks(responseJson.books);
 			}
-		};
-		xhr.onerror = function () {
+		} catch (error) {
 			showResponseMessage();
-		};
-		xhr.open('GET', `${apiUrl}/list`);
-		xhr.send();
+		}
 	};
 
-	const insertBook = (book) => {
-		const xhr = new XMLHttpRequest();
-		xhr.onload = function () {
-			const responseJson = JSON.parse(this.responseText);
+	const insertBook = async (book) => {
+		try {
+			const response = await fetch(`${apiUrl}/add`, {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json',
+					'x-auth-token': '12345'
+				},
+				body: JSON.stringify(book)
+			});
+			const responseJson = await response.json();
 			showResponseMessage(responseJson.message);
 			getBook();
-		};
-		xhr.onerror = function () {
+		} catch (error) {
 			showResponseMessage();
-		};
-		xhr.open('POST', `${apiUrl}/add`);
-		xhr.setRequestHeader('content-type', 'application/json');
-		xhr.setRequestHeader('x-auth-token', '12345');
-		xhr.send(JSON.stringify(book));
+		}
 	};
 
-	const updateBook = (book) => {
-		const xhr = new XMLHttpRequest();
-		xhr.onload = function () {
-			const responseJson = JSON.parse(this.responseText);
+	const updateBook = async (book) => {
+		try {
+			const response = await fetch(`${apiUrl}/edit/${book.id}`, {
+				method: 'PUT',
+				headers: {
+					'content-type': 'application/json',
+					'x-auth-token': '12345'
+				},
+				body: JSON.stringify(book)
+			});
+			const responseJson = await response.json();
 			showResponseMessage(responseJson.message);
 			getBook();
-		};
-		xhr.onerror = function () {
+		} catch (error) {
 			showResponseMessage();
-		};
-		xhr.open('PUT', `${apiUrl}/edit/${book.id}`);
-		xhr.setRequestHeader('content-type', 'application/json');
-		xhr.setRequestHeader('x-auth-token', '12345');
-		xhr.send(JSON.stringify(book));
+		}
 	};
 
-	const removeBook = (bookId) => {
-		const xhr = new XMLHttpRequest();
-		xhr.onload = function () {
-			const responseJson = JSON.parse(this.responseText);
+	const removeBook = async (bookId) => {
+		try {
+			const response = await fetch(`${apiUrl}/delete/${bookId}`, {
+				method: 'DELETE',
+				headers: {
+					'x-auth-token': '12345'
+				}
+			});
+			const responseJson = await response.json();
 			showResponseMessage(responseJson.message);
 			getBook();
-		};
-		xhr.onerror = function () {
+		} catch (error) {
 			showResponseMessage();
-		};
-		xhr.open('DELETE', `${apiUrl}/delete/${bookId}`);
-		xhr.setRequestHeader('x-auth-token', '12345');
-		xhr.send();
+		}
 	};
 
 	/* jangan ubah kode di bawah ini ya! */
