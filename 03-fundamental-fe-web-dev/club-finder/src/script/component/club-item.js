@@ -10,7 +10,7 @@ class ClubItem extends HTMLElement {
 	}
 
 	render() {
-		const { fanArt, name, description } = this._club;
+		const { strTeamBadge, strTeam, strDescriptionEN } = this._club;
 		this._shadowRoot.innerHTML = `
 			<style>
 				* {
@@ -50,10 +50,10 @@ class ClubItem extends HTMLElement {
 					-webkit-line-clamp: 10; /* number of lines to show */
 				}
 			</style>
-            <img class="fan-art-club" src="${fanArt}" alt="Fan Art">
+            <img class="fan-art-club" src="${strTeamBadge}" alt="Fan Art">
             <div class="club-info">
-            <h2>${name}</h2>
-            <p>${description}</p></div>
+            <h2>${strTeam}</h2>
+            <p>${strDescriptionEN}</p></div>
         `;
 	}
 }

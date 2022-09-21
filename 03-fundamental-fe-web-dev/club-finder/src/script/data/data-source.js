@@ -1,17 +1,10 @@
-import clubs from './clubs.js';
-
 export default class DataSource {
-	static searchClub(keyword) {
-		return new Promise((resolve, reject) => {
-			const filteredClubs = clubs.filter((club) =>
-				club.name.toUpperCase().includes(keyword.toUpperCase())
-			);
-
-			if (filteredClubs.length) {
-				resolve(filteredClubs);
-			} else {
-				reject(`${keyword} is not found`);
-			}
-		});
+	static async searchClub(keyword) {
+		const url = new URL(`https://sports-api.dicoding.dev/teams/search`);
+		url.searchParams.set('t', keyword);
+		const response = await fetch(url);
+		const { teams } = await response.json();
+		if (!teams) throw new Error(`${keyword} is not found`);
+		return teams;
 	}
 }
