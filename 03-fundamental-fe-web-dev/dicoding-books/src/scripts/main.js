@@ -1,18 +1,68 @@
+const apiUrl = 'https://books-api.dicoding.dev';
+
 function main() {
 	const getBook = () => {
-		// tuliskan kode di sini!
+		const xhr = new XMLHttpRequest();
+		xhr.onload = function () {
+			const responseJson = JSON.parse(this.responseText);
+			if (responseJson.error) {
+				showResponseMessage(responseJson.message);
+			} else {
+				renderAllBooks(responseJson.books);
+			}
+		};
+		xhr.onerror = function () {
+			showResponseMessage();
+		};
+		xhr.open('GET', `${apiUrl}/list`);
+		xhr.send();
 	};
 
 	const insertBook = (book) => {
-		// tuliskan kode di sini!
+		const xhr = new XMLHttpRequest();
+		xhr.onload = function () {
+			const responseJson = JSON.parse(this.responseText);
+			showResponseMessage(responseJson.message);
+			getBook();
+		};
+		xhr.onerror = function () {
+			showResponseMessage();
+		};
+		xhr.open('POST', `${apiUrl}/add`);
+		xhr.setRequestHeader('content-type', 'application/json');
+		xhr.setRequestHeader('x-auth-token', '12345');
+		xhr.send(JSON.stringify(book));
 	};
 
 	const updateBook = (book) => {
-		// tuliskan kode di sini!
+		const xhr = new XMLHttpRequest();
+		xhr.onload = function () {
+			const responseJson = JSON.parse(this.responseText);
+			showResponseMessage(responseJson.message);
+			getBook();
+		};
+		xhr.onerror = function () {
+			showResponseMessage();
+		};
+		xhr.open('PUT', `${apiUrl}/edit/${book.id}`);
+		xhr.setRequestHeader('content-type', 'application/json');
+		xhr.setRequestHeader('x-auth-token', '12345');
+		xhr.send(JSON.stringify(book));
 	};
 
 	const removeBook = (bookId) => {
-		// tuliskan kode di sini!
+		const xhr = new XMLHttpRequest();
+		xhr.onload = function () {
+			const responseJson = JSON.parse(this.responseText);
+			showResponseMessage(responseJson.message);
+			getBook();
+		};
+		xhr.onerror = function () {
+			showResponseMessage();
+		};
+		xhr.open('DELETE', `${apiUrl}/delete/${bookId}`);
+		xhr.setRequestHeader('x-auth-token', '12345');
+		xhr.send();
 	};
 
 	/* jangan ubah kode di bawah ini ya! */
