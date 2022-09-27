@@ -1,0 +1,40 @@
+{
+	"name": "amber-movie",
+	"version": "0.0.1",
+	"description": "Movie catalogue app is for discovering new movies and TV shows",
+	"main": "index.js",
+	"scripts": {
+		"dev": "webpack serve --config webpack.dev.js",
+		"build": "webpack --config webpack.prod.js",
+		"preview": "npm run build && http-server dist"
+	},
+	"keywords": [
+		"movie-catalogue",
+		"themoviedb",
+		"movie-app",
+		"dicoding-academy"
+	],
+	"author": {
+		"name": "Habib Mustofa",
+		"url": "https://github.com/mustofa-id",
+		"email": "hm.dev7@gmail.com"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@babel/core": "^7.19.1",
+		"@babel/preset-env": "^7.19.1",
+		"@unocss/reset": "^0.45.25",
+		"@unocss/webpack": "^0.45.25",
+		"babel-loader": "^8.2.5",
+		"css-loader": "^6.7.1",
+		"dayjs": "^1.11.5",
+		"html-webpack-plugin": "^5.5.0",
+		"http-server": "^14.1.1",
+		"style-loader": "^3.3.1",
+		"unocss": "^0.45.25",
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.10.0",
+		"webpack-dev-server": "^4.11.1",
+		"webpack-merge": "^5.8.0"
+	}
+}
