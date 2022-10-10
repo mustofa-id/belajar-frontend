@@ -1,10 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
 		<title>Rencana-In!</title>
 	</head>
-	<body></body>
+	<body>
+		<header>
+			<h1>
+				<button
+					id="sidebar-menu-button"
+					class="material-symbols-outlined hover"
+					title="Tampilkan sidebar"
+					onclick="showSidebar()"
+				>
+					menu
+				</button>
+				Rencana-In!
+			</h1>
+			<nav class="nav-main">
+				<ul>
+					<li>
+						<button
+							id="btn-add-new"
+							class="border-hand-drawn hover"
+							title="Tambahkan rencana baru"
+							onclick="addPlan()"
+						>
+							<span class="material-symbols-outlined">add</span>
+							Tambah
+						</button>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="border-hand-drawn">
+			<div id="content">
+				<!-- start item template -->
+				<article class="content-item border-hand-drawn" style="visibility: hidden">
+					<section class="content-item-header">
+						<span class="material-symbols-outlined">plan</span>
+						<input
+							type="text"
+							spellcheck="false"
+							placeholder="Ketik judul rencana"
+							name="plan-title"
+						/>
+						<button class="material-symbols-outlined hover done" tabindex="-1">
+							radio_button_unchecked
+						</button>
+					</section>
+					<label>
+						<span>Oleh:</span>
+						<input type="text" spellcheck="false" placeholder="Nama penulis" name="plan-author" />
+					</label>
+					<span class="content-item-footer">
+						<label>
+							<span>Tahun:</span>
+							<input type="number" spellcheck="false" placeholder="Tahun terbit" name="plan-year" />
+						</label>
+						<button class="material-symbols-outlined hover delete" title="Hapus rencana">
+							delete
+						</button>
+					</span>
+				</article>
+				<!-- end item template -->
+			</div>
+			<aside class="sidebar hidden">
+				<button
+					id="sidebar-close-button"
+					class="material-symbols-outlined hover"
+					title="Tutup sidebar"
+					onclick="hideSidebar()"
+				>
+					close
+				</button>
+				<article class="filter">
+					<h2>Filter daftar rencana</h2>
+					<div class="text-search border-hand-drawn">
+						<span class="material-symbols-outlined"> search </span>
+						<input
+							type="search"
+							name="list-filter-text"
+							placeholder="Judul rencana"
+							title="Ketik judul rencana yang akan di-filter"
+						/>
+					</div>
+					<ul>
+						<li>
+							<label>
+								<input type="radio" name="list-filter-item" value="all" />
+								<span>Semua daftar rencana</span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="radio" name="list-filter-item" value="uncompleted" />
+								<span>Belum terlaksana</span>
+							</label>
+						</li>
+						<li>
+							<label>
+								<input type="radio" name="list-filter-item" value="completed" />
+								<span>Sudah terlaksana</span>
+							</label>
+						</li>
+					</ul>
+				</article>
+				<article class="about">
+					<img src="images/plan.svg" alt="plan logo by Google Symbols" />
+					<h2>Tentang</h2>
+					<p>
+						Rencana-In! adalah aplikasi berbasis web untuk mencatat data rencana. Dibuat oleh Habib
+						Mustofa sebagai proyek Submission Belajar Fundamental Front-End Web Development di Dicoding
+						Academy.
+					</p>
+					<div class="links">
+						<a
+							class="button-link hover"
+							href="https://www.dicoding.com/users/mustofa-id"
+							target="_blank"
+						>
+							Dicoding
+						</a>
+						<a class="button-link hover" href="https://twitter.com/mustofa_idn" target="_blank">
+							Twitter
+						</a>
+						<a class="button-link hover" href="https://github.com/mustofa-id" target="_blank">
+							Github
+						</a>
+					</div>
+				</article>
+				<article class="storage">
+					<p>Kapasitas penyimpanan:</p>
+					<div>
+						<span id="storage-used-text">0.3KB</span>
+						<progress id="storage-used" max="5120"></progress>
+						<span>5MB</span>
+					</div>
+				</article>
+			</aside>
+			<div id="storage-unsupported-banner" class="border-hand-drawn">
+				<span class="material-symbols-outlined" style="margin-right: 4px"> warning </span>
+				<p>Browser ini tidak mendukung Storage API. Data rencana tidak akan tersimpan.</p>
+			</div>
+			<div id="confirm-dialog-overlay">
+				<div id="confirm-dialog" class="border-hand-drawn">
+					<div style="margin: 4px 12px">
+						<h2></h2>
+						<p></p>
+						<div id="confirm-dialog-actions">
+							<button class="border-hand-drawn hover">Tidak</button>
+							<button class="border-hand-drawn hover" name="confirm">Ya</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<p>Rencana-In! &#169; 2022 - Dicoding Academy</p>
+		</footer>
+		<script src="index.js"></script>
+	</body>
 </html>
