@@ -1,16 +1,16 @@
 {
-	"name": "amber-movie",
+	"name": "rencana-in",
 	"version": "0.0.1",
-	"description": "Movie catalogue app is for discovering new movies and TV shows",
+	"description": "Web based planing app that help you to write down your plan!",
 	"scripts": {
 		"dev": "webpack serve --config webpack.dev.js",
 		"build": "webpack --config webpack.prod.js",
 		"preview": "npm run build && http-server dist"
 	},
 	"keywords": [
-		"movie-catalogue",
-		"themoviedb",
-		"movie-app",
+		"planing-app",
+		"plan",
+		"todo",
 		"dicoding-academy"
 	],
 	"author": {
@@ -23,10 +23,10 @@
 		"@babel/core": "^7.19.1",
 		"@babel/preset-env": "^7.19.1",
 		"babel-loader": "^8.2.5",
-		"css-loader": "^6.7.1",		
+		"css-loader": "^6.7.1",
 		"html-webpack-plugin": "^5.5.0",
 		"http-server": "^14.1.1",
-		"style-loader": "^3.3.1",		
+		"style-loader": "^3.3.1",
 		"webpack": "^5.74.0",
 		"webpack-cli": "^4.10.0",
 		"webpack-dev-server": "^4.11.1",
