@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="index.css" />
 		<title>Rencana-In!</title>
 	</head>
 	<body>
@@ -36,37 +35,7 @@
 			</nav>
 		</header>
 		<main class="border-hand-drawn">
-			<div id="content">
-				<!-- start item template -->
-				<article class="content-item border-hand-drawn" style="visibility: hidden">
-					<section class="content-item-header">
-						<span class="material-symbols-outlined">plan</span>
-						<input
-							type="text"
-							spellcheck="false"
-							placeholder="Ketik judul rencana"
-							name="plan-title"
-						/>
-						<button class="material-symbols-outlined hover done" tabindex="-1">
-							radio_button_unchecked
-						</button>
-					</section>
-					<label>
-						<span>Oleh:</span>
-						<input type="text" spellcheck="false" placeholder="Nama penulis" name="plan-author" />
-					</label>
-					<span class="content-item-footer">
-						<label>
-							<span>Tahun:</span>
-							<input type="number" spellcheck="false" placeholder="Tahun terbit" name="plan-year" />
-						</label>
-						<button class="material-symbols-outlined hover delete" title="Hapus rencana">
-							delete
-						</button>
-					</span>
-				</article>
-				<!-- end item template -->
-			</div>
+			<div id="content"></div>
 			<aside class="sidebar hidden">
 				<button
 					id="sidebar-close-button"
@@ -113,8 +82,8 @@
 					<h2>Tentang</h2>
 					<p>
 						Rencana-In! adalah aplikasi berbasis web untuk mencatat data rencana. Dibuat oleh Habib
-						Mustofa sebagai proyek Submission Belajar Fundamental Front-End Web Development di Dicoding
-						Academy.
+						Mustofa sebagai proyek Submission Belajar Fundamental Front-End Web Development di
+						Dicoding Academy.
 					</p>
 					<div class="links">
 						<a
@@ -161,6 +130,5 @@
 		<footer>
 			<p>Rencana-In! &#169; 2022 - Dicoding Academy</p>
 		</footer>
-		<script src="index.js"></script>
 	</body>
 </html>
