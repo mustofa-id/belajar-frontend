@@ -22,9 +22,7 @@ export function setupListPlanView() {
 					planItemElement.item = plan;
 					preparePlanUpdate(plan);
 				} else if (type === 'delete') {
-					// TODO: use custom confirm dialog
-					const ok = confirm(`Hapus rencana "${plan.title}"?`);
-					if (ok) deletePlan(plan.id);
+					handle_delete_plan(plan);
 				}
 			};
 			planBox.appendChild(planItemElement);
@@ -68,4 +66,19 @@ export function setupListPlanView() {
 	document.addEventListener('plan-change', renderPlans);
 	document.addEventListener('plan-loading', renderLoader);
 	loadPlans();
+}
+
+function handle_delete_plan(plan) {
+	// TODO: use custom confirm dialog
+	if (!plan.title && !plan.description) {
+		// delete directly when no title and description
+		deletePlan(plan.id);
+	} else {
+		const title = plan.title || '<Tidak ada judul>';
+		const desc = plan.description
+			? plan.description.substring(0, 50) + '...'
+			: '<Tidak ada deskripsi>';
+		const ok = confirm(`Hapus rencana dengan judul: "${title}" dan deskripsi: "${desc}"?`);
+		if (ok) deletePlan(plan.id);
+	}
 }
