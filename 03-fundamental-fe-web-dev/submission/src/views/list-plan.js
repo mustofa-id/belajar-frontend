@@ -1,7 +1,7 @@
 import { deletePlan, loadPlans, plans, preparePlanUpdate } from '../data/plan.js';
 
 export function setupListPlanView() {
-	const planBox = document.getElementById('content');
+	const planBox = document.getElementById('plan-list-box');
 
 	/**
 	 * @param {CustomEvent<{ clause: Record<string, string>}>} e

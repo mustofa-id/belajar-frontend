@@ -99,7 +99,7 @@ button:disabled {
 	cursor: not-allowed;
 }
 
-main #content {
+main #plan-list-box {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 8px;
@@ -165,7 +165,7 @@ a.button-link {
 		flex-direction: row-reverse;
 	}
 
-	main #content {
+	main #plan-list-box {
 		flex-basis: 75%;
 		overflow: auto;
 		min-height: initial;
