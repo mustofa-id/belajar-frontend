@@ -77,11 +77,15 @@ input[type=radio] {
 /**
  * Plan filter custom element.
  * This custom element expose custom events:
- * - `onfilter({ type, value })` - type is either `search` nor `mode`
+ * - `onmodechange(value)`
+ * - `onsearch(query)`
  */
 class PlanFilter extends HTMLElement {
-	/** @type {((data: { type: 'search' | 'mode', value: string }) => void)?} */
-	onfilter = undefined;
+	/** @type {((value: keyof modes) => void)?} */
+	onmodechange = undefined;
+
+	/** @type {((query: string) => void)?} */
+	onsearch = undefined;
 
 	constructor() {
 		super();
@@ -92,13 +96,13 @@ class PlanFilter extends HTMLElement {
 	_handle_radio = (e) => {
 		if (e.target.checked) {
 			const value = e.target.value;
-			this.onfilter?.({ type: 'mode', value });
+			this.onmodechange?.(value);
 		}
 	};
 
 	_handle_search = (e) => {
-		const value = e.target.value;
-		this.onfilter?.({ type: 'search', value });
+		const query = e.target.value;
+		this.onsearch?.(query);
 	};
 
 	connectedCallback() {
