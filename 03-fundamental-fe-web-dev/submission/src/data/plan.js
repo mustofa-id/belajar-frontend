@@ -53,6 +53,7 @@ export async function deletePlan(id) {
 		if (~target_delete_index) {
 			plans.splice(target_delete_index, 1);
 		}
+		prepared_plans.delete(id);
 		fireEvent('plan-change');
 	}
 }
