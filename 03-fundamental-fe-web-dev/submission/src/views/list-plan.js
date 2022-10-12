@@ -1,36 +1,36 @@
-import { deletePlan, loadPlans, plans, preparePlanUpdate } from '../data/plan.js';
+import { deletePlan, loadPlans, plans, preparePlanUpdate } from '../data/plan';
 
 export function setupListPlanView() {
-	const planBox = document.getElementById('plan-list-box');
+	const plan_box = document.getElementById('plan-list-box');
 
 	/**
 	 * @param {CustomEvent<{ clause: Record<string, string>}>} e
 	 */
-	function renderPlans(e) {
-		planBox.innerHTML = '';
+	function render_plans(e) {
+		plan_box.innerHTML = '';
 		for (const plan of plans) {
 			/** @type {PlanItem} */
-			const planItemElement = document.createElement('plan-item');
-			planItemElement.item = plan;
-			planItemElement.ontyping = ({ type, value }) => {
+			const plan_item_element = document.createElement('plan-item');
+			plan_item_element.item = plan;
+			plan_item_element.ontyping = ({ type, value }) => {
 				plan[type] = value;
 				preparePlanUpdate(plan);
 			};
-			planItemElement.onaction = ({ type }) => {
+			plan_item_element.onaction = ({ type }) => {
 				if (type === 'done') {
 					plan.done = !plan.done;
-					planItemElement.item = plan;
+					plan_item_element.item = plan;
 					preparePlanUpdate(plan);
 				} else if (type === 'delete') {
 					handle_delete_plan(plan);
 				}
 			};
-			planBox.appendChild(planItemElement);
+			plan_box.appendChild(plan_item_element);
 		}
 		if (!plans.length) {
-			planBox.style.justifyContent = 'center';
+			plan_box.style.justifyContent = 'center';
 			const has_clause = Object.keys(e?.detail?.clause ?? {}).length > 0;
-			planBox.innerHTML = `
+			plan_box.innerHTML = `
 				<div style="text-align: center; margin-top: 2rem;">
 					<h2>${
 						has_clause
@@ -45,26 +45,26 @@ export function setupListPlanView() {
 				</div>
 			`;
 		} else {
-			planBox.style.justifyContent = 'unset';
+			plan_box.style.justifyContent = 'unset';
 		}
 	}
 
-	function renderLoader(e) {
+	function render_loader(e) {
 		const busy = e.detail.busy;
 		if (busy) {
-			planBox.style.justifyContent = 'center';
-			planBox.innerHTML = `
+			plan_box.style.justifyContent = 'center';
+			plan_box.innerHTML = `
 				<div style="text-align: center; margin-top: 2rem;">
 					<h2>Loading...</h2>				
 				</div>
 			`;
 		} else {
-			renderPlans(e);
+			render_plans(e);
 		}
 	}
 
-	document.addEventListener('plan-change', renderPlans);
-	document.addEventListener('plan-loading', renderLoader);
+	document.addEventListener('plan-change', render_plans);
+	document.addEventListener('plan-loading', render_loader);
 	loadPlans();
 }
 

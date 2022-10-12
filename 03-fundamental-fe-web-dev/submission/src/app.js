@@ -1,6 +1,6 @@
 import './app.css';
-import './components/plan-filter.js';
-import './components/plan-item.js';
+import './components/plan-filter';
+import './components/plan-item';
 import { setupFilterView } from './views/filter';
 import { setupListPlanView } from './views/list-plan';
 import { setupMainView } from './views/main';

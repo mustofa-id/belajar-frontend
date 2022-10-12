@@ -2,7 +2,7 @@ import { loadPlans } from '../data/plan';
 
 export function setupFilterView() {
 	/** @type {PlanFilter} */
-	const planFilter = document.querySelector('plan-filter');
+	const plan_filter = document.querySelector('plan-filter');
 
 	/** @type {keyof modes} */
 	let mode = 'all';
@@ -13,18 +13,18 @@ export function setupFilterView() {
 	/** @type {number=} */
 	let query_timer;
 
-	planFilter.onmodechange = (value) => {
+	plan_filter.onmodechange = (value) => {
 		mode = value;
-		filterPlans();
+		filter_plans();
 	};
 
-	planFilter.onsearch = (value) => {
+	plan_filter.onsearch = (value) => {
 		query = value;
 		clearTimeout(query_timer);
-		query_timer = setTimeout(() => filterPlans(), 800);
+		query_timer = setTimeout(() => filter_plans(), 800);
 	};
 
-	function filterPlans() {
+	function filter_plans() {
 		const clause = {};
 		if (mode && mode !== 'all') {
 			clause.done = `eq.${mode === 'completed'}`;

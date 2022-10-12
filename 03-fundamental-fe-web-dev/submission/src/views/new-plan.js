@@ -1,15 +1,15 @@
-import { addPlan } from '../data/plan.js';
+import { addPlan } from '../data/plan';
 
 export function setupNewPlanView() {
 	/** @type {HTMLButtonElement} */
-	const buttonNewPlan = document.getElementById('btn-new-plan');
-	buttonNewPlan.onclick = async () => {
-		buttonNewPlan.disabled = true;
+	const btn_new_pan = document.getElementById('btn-new-plan');
+	btn_new_pan.onclick = async () => {
+		btn_new_pan.disabled = true;
 		// TODO: show loading state when awaiting
 		await addPlan({
 			title: '',
 			description: ''
 		});
-		buttonNewPlan.disabled = false;
+		btn_new_pan.disabled = false;
 	};
 }
