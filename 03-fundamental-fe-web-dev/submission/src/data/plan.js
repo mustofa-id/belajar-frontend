@@ -26,7 +26,6 @@ export async function loadPlans() {
 		const data = await request.json();
 		plans.length = 0;
 		plans.push(...data);
-		fireEvent('plan-change');
 	}
 	fireEvent('plan-loading', { busy: false });
 }

@@ -39,6 +39,21 @@ export function setupListPlanView() {
 		}
 	}
 
-	loadPlans();
+	function renderLoader(e) {
+		const busy = e.detail.busy;
+		if (busy) {
+			planBox.style.justifyContent = 'center';
+			planBox.innerHTML = `
+				<div style="text-align: center; margin-top: 2rem;">
+					<h2>Loading...</h2>				
+				</div>
+			`;
+		} else {
+			renderPlans();
+		}
+	}
+
 	document.addEventListener('plan-change', renderPlans);
+	document.addEventListener('plan-loading', renderLoader);
+	loadPlans();
 }
