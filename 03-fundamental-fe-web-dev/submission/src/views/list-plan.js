@@ -3,7 +3,10 @@ import { deletePlan, loadPlans, plans, preparePlanUpdate } from '../data/plan.js
 export function setupListPlanView() {
 	const planBox = document.getElementById('content');
 
-	function renderPlans() {
+	/**
+	 * @param {CustomEvent<{ clause: Record<string, string>}>} e
+	 */
+	function renderPlans(e) {
 		planBox.innerHTML = '';
 		for (const plan of plans) {
 			/** @type {PlanItem} */
@@ -28,10 +31,19 @@ export function setupListPlanView() {
 		}
 		if (!plans.length) {
 			planBox.style.justifyContent = 'center';
+			const has_clause = Object.keys(e?.detail?.clause ?? {}).length > 0;
 			planBox.innerHTML = `
 				<div style="text-align: center; margin-top: 2rem;">
-					<h2>Belum ada data rencana</h2>
-					<em>Klik tombol baru di pojok kanan atas untuk membuat rencana baru</em>
+					<h2>${
+						has_clause
+							? 'Tidak ada data rencana yang cocok dengen filter'
+							: 'Belum ada data rencana'
+					}</h2>
+					<em>${
+						has_clause
+							? 'Cek kembali kata kunci yang dimasukan pada filter'
+							: 'Klik tombol baru di pojok kanan atas untuk membuat rencana baru'
+					}</em>
 				</div>
 			`;
 		} else {
@@ -49,7 +61,7 @@ export function setupListPlanView() {
 				</div>
 			`;
 		} else {
-			renderPlans();
+			renderPlans(e);
 		}
 	}
 

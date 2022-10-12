@@ -18,16 +18,19 @@ export const plans = [];
 const prepared_plans = new Map();
 let prepared_timer;
 
-export async function loadPlans() {
-	fireEvent('plan-loading', { busy: true });
-	const params = { order: 'created_at.desc' };
+/**
+ * @param {Record<string, string>} clause
+ */
+export async function loadPlans(clause = {}) {
+	fireEvent('plan-loading', { busy: true, clause });
+	const params = { ...clause, order: 'created_at.desc' };
 	const request = await api('GET', { params });
 	if (request.ok) {
 		const data = await request.json();
 		plans.length = 0;
 		plans.push(...data);
 	}
-	fireEvent('plan-loading', { busy: false });
+	fireEvent('plan-loading', { busy: false, clause });
 }
 
 /**
