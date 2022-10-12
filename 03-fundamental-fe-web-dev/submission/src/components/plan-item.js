@@ -1,4 +1,6 @@
 /** @typedef {import('../data/plan').Plan} Plan */
+import { formatRelative } from 'date-fns';
+import { id } from 'date-fns/locale';
 
 const template = `
 <style>
@@ -193,7 +195,8 @@ class PlanItem extends HTMLElement {
 		this._item = item ?? {};
 		this.plan.title.value = item.title;
 		this.plan.description.value = item.description;
-		this.plan.created_at.innerText = new Date(item.created_at).toLocaleString();
+		const created_at = formatRelative(new Date(item.created_at), new Date(), { locale: id });
+		this.plan.created_at.innerText = 'Dibuat ' + created_at;
 		this.action.done.title = this._item.done ? 'Tandai belum selesai' : 'Tandai sudah selesai';
 		this.action.done.innerText = this._item.done ? 'task_alt' : 'circle';
 		this.shadow_root.children[1].className = this._item.done ? 'done' : '';
