@@ -96,11 +96,11 @@ article:hover button#delete {
 }
 
 #done:hover {
-	color: #5fd068;
+	color: var(--app-color-primary);
 }
 
 #delete:hover {
-	color: red;
+	color: var(--app-color-danger);
 }
 
 button {
