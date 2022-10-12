@@ -81,10 +81,10 @@ input[type=radio] {
  * - `onsearch(query)`
  */
 class PlanFilter extends HTMLElement {
-	/** @type {((value: keyof modes) => void)?} */
+	/** @type {(value: keyof modes) => void =} */
 	onmodechange = undefined;
 
-	/** @type {((query: string) => void)?} */
+	/** @type {(query: string) => void =} */
 	onsearch = undefined;
 
 	constructor() {

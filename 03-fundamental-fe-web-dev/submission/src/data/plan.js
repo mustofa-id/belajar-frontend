@@ -100,8 +100,8 @@ function setReloadPreventer() {
 
 /**
  * Make request to remote api
- * @param {string?} method
- * @param {{ params?: Record<string, string>, data?: any }?} opt
+ * @param {string =} method
+ * @param {{ params?: Record<string, string>, data?: any } =} opt
  * @returns {Promise<Response>}
  */
 function api(method = 'GET', opt = {}) {
@@ -132,7 +132,7 @@ function api(method = 'GET', opt = {}) {
 /**
  *
  * @param {PlanEvent} name
- * @param {object?} data
+ * @param {object =} data
  */
 function fireEvent(name, data) {
 	const event = new CustomEvent(name, { detail: data });

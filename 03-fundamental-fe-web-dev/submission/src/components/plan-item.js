@@ -159,10 +159,10 @@ button {
  * - `action` - object contains `done` and `delete` button elements
  */
 class PlanItem extends HTMLElement {
-	/** @type {((data: { type: 'title' | 'description', value: string }) => void)?} */
+	/** @type {(data: { type: 'title' | 'description', value: string }) => void =} */
 	ontyping = undefined;
 
-	/** @type {((data: { type: 'done' | 'delete' }) => void)?} */
+	/** @type {(data: { type: 'done' | 'delete' }) => void =} */
 	onaction = undefined;
 
 	constructor() {
