@@ -104,7 +104,7 @@ function setReloadPreventer() {
  * @param {{ params?: Record<string, string>, data?: any } =} opt
  * @returns {Promise<Response>}
  */
-function api(method = 'GET', opt = {}) {
+async function api(method = 'GET', opt = {}) {
 	// TODO: use webpack env variable for `anon` and `base_url`
 	const anon = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh4emR3bXBqa2dvYXp0bmljZW9qIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjUzNjg1MjQsImV4cCI6MTk4MDk0NDUyNH0.0BqjxO_ghTtIvW0pvJRZH_PqxlYT4dUPb2tfS-Jca0o`;
 	const url = new URL('/rest/v1/plans', 'https://hxzdwmpjkgoaztniceoj.supabase.co');
@@ -126,7 +126,7 @@ function api(method = 'GET', opt = {}) {
 		init.headers.prefer = 'return=representation';
 	}
 	// TODO: handle error and notify user
-	return fetch(url, init);
+	return fetch(url, init).catch(console.error);
 }
 
 /**
