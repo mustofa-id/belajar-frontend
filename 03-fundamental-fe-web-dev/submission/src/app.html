@@ -34,7 +34,7 @@
 				</ul>
 			</nav>
 		</header>
-		<main class="border-hand-drawn">
+		<main>
 			<div id="content"></div>
 			<aside class="sidebar hidden">
 				<button
@@ -45,40 +45,12 @@
 				>
 					close
 				</button>
-				<article class="filter">
-					<h2>Filter daftar rencana</h2>
-					<div class="text-search border-hand-drawn">
-						<span class="material-symbols-outlined"> search </span>
-						<input
-							type="search"
-							name="list-filter-text"
-							placeholder="Judul rencana"
-							title="Ketik judul rencana yang akan di-filter"
-						/>
-					</div>
-					<ul>
-						<li>
-							<label>
-								<input type="radio" name="list-filter-item" value="all" />
-								<span>Semua daftar rencana</span>
-							</label>
-						</li>
-						<li>
-							<label>
-								<input type="radio" name="list-filter-item" value="uncompleted" />
-								<span>Belum terlaksana</span>
-							</label>
-						</li>
-						<li>
-							<label>
-								<input type="radio" name="list-filter-item" value="completed" />
-								<span>Sudah terlaksana</span>
-							</label>
-						</li>
-					</ul>
+				<article style="margin-top: 8px;">
+					<plan-filter />
 				</article>
 				<article class="about">
-					<img src="images/plan.svg" alt="plan logo by Google Symbols" />
+					<!-- app icon -->
+					<div class="material-symbols-outlined" style="font-size: 10rem">event_note</div>
 					<h2>Tentang</h2>
 					<p>
 						Rencana-In! adalah aplikasi berbasis web untuk mencatat data rencana. Dibuat oleh Habib
@@ -101,19 +73,8 @@
 						</a>
 					</div>
 				</article>
-				<article class="storage">
-					<p>Kapasitas penyimpanan:</p>
-					<div>
-						<span id="storage-used-text">0.3KB</span>
-						<progress id="storage-used" max="5120"></progress>
-						<span>5MB</span>
-					</div>
-				</article>
 			</aside>
-			<div id="storage-unsupported-banner" class="border-hand-drawn">
-				<span class="material-symbols-outlined" style="margin-right: 4px"> warning </span>
-				<p>Browser ini tidak mendukung Storage API. Data rencana tidak akan tersimpan.</p>
-			</div>
+
 			<div id="confirm-dialog-overlay">
 				<div id="confirm-dialog" class="border-hand-drawn">
 					<div style="margin: 4px 12px">

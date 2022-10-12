@@ -15,6 +15,10 @@
 }
 /* -- end css reset */
 
+:root {
+	--app-border-hand-drawn: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
 *::placeholder {
 	font-weight: initial;
 	color: #bbb;
@@ -51,6 +55,7 @@ footer {
 	max-width: 1024px;
 	margin: 0 auto;
 	padding: 0 8px;
+	border-radius: var(--app-border-hand-drawn);
 }
 
 header {
@@ -86,15 +91,6 @@ main #content {
 	min-height: 100vh;
 }
 
-input[type='radio'],
-progress {
-	all: revert;
-}
-
-.border-hand-drawn {
-	border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-}
-
 .nav-main li {
 	display: inline;
 }
@@ -112,16 +108,6 @@ progress {
 	cursor: pointer;
 }
 
-/* hide number input arrows 
- * ref: https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp 
- */
-input[name='book-year']::-webkit-outer-spin-button,
-input[name='book-year']::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-	-moz-appearance: textfield;
-}
-
 aside.sidebar {
 	position: fixed;
 	top: 0;
@@ -135,30 +121,6 @@ aside.sidebar {
 
 aside.sidebar.hidden {
 	display: none;
-}
-
-.sidebar > .filter {
-	margin-top: 8px;
-	text-align: center;
-}
-
-.sidebar > .filter > .text-search {
-	display: flex;
-	width: 100%;
-	border: solid 1px #333;
-	padding: 2px 4px;
-	text-align: initial;
-}
-
-.sidebar > .filter > .text-search input {
-	width: 100%;
-}
-
-.sidebar > .filter ul {
-	list-style-type: none;
-	text-align: initial;
-	margin: 8px;
-	cursor: pointer;
 }
 
 .sidebar > .about {
@@ -201,22 +163,6 @@ a.button-link {
 	padding: 1px 6px;
 }
 
-#storage-unsupported-banner {
-	display: none;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	align-items: center;
-	background: orange;
-	color: white;
-	width: 200px;
-	line-height: 1;
-	padding: 4px 6px;
-	margin: 6px;
-	border: solid 1px #333;
-	box-shadow: 8px 12px 10px 0 hsla(0, 0%, 0%, 0.2);
-}
-
 #confirm-dialog-overlay {
 	display: none;
 	position: fixed;
@@ -245,13 +191,6 @@ a.button-link {
 #confirm-dialog-actions > button {
 	border: solid 1px #333;
 	padding: 2px 6px;
-}
-
-@media (min-width: 640px) {
-	.content-item {
-		width: 0;
-		flex-basis: 50%;
-	}
 }
 
 @media (min-width: 1024px) {
