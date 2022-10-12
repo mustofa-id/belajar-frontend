@@ -132,7 +132,7 @@ aside.sidebar {
 	background-color: #f6fbf4;
 	width: 284px;
 	height: 100%;
-	padding: 8px;
+	padding: 16px;
 	box-shadow: 8px 12px 10px 0 hsla(0, 0%, 0%, 0.2);
 }
 
@@ -191,7 +191,7 @@ a.button-link {
 		max-width: initial;
 		flex-basis: 25%;
 		height: 84vh;
-		padding: 0 8px;
+		padding: 8px 16px;
 		border-right: dashed 1px #333;
 		box-shadow: none;
 	}
