@@ -31,6 +31,11 @@ const template = `
 	box-sizing: border-box;
 }
 
+*::placeholder {
+	font-weight: initial;
+	color: #bbb;
+}
+
 h2 {
 	font-size: 1.5rem;
 	font-weight: 700;
