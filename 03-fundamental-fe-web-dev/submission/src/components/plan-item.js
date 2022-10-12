@@ -145,11 +145,30 @@ button {
 </article>
 `;
 
+/**
+ * Plan item custom element.
+ * This custom element expose custom events:
+ * - `ontyping({ type, value })` - type is either `title` nor `description`
+ * - `onaction({ type })` - type is either `done` or `delete`
+ *
+ * and setters:
+ * - `set item(plan)` - set plan item object to element
+ *
+ * and also getters:
+ * - `plan` - object contains `title`, `description`, and `created_at` elements
+ * - `action` - object contains `done` and `delete` button elements
+ */
 class PlanItem extends HTMLElement {
+	/** @type {((data: { type: 'title' | 'description', value: string }) => void)?} */
+	ontyping = undefined;
+
+	/** @type {((data: { type: 'done' | 'delete' }) => void)?} */
+	onaction = undefined;
+
 	constructor() {
 		super();
 		this.shadow_root = this.attachShadow({ mode: 'open' });
-		this.render();
+		this._render();
 	}
 
 	connectedCallback() {
@@ -170,12 +189,6 @@ class PlanItem extends HTMLElement {
 		}
 	}
 
-	_fireEvent(name, type, value) {
-		const detail = { type, value };
-		const inputEvent = new CustomEvent(name, { detail, cancelable: false });
-		this.dispatchEvent(inputEvent);
-	}
-
 	/**  @param {Plan} item */
 	set item(item) {
 		this._item = item ?? {};
@@ -187,7 +200,7 @@ class PlanItem extends HTMLElement {
 		this.shadow_root.children[1].className = this._item.done ? 'done' : '';
 	}
 
-	render() {
+	_render() {
 		this.shadow_root.innerHTML = template;
 		this.plan = {
 			/** @type {HTMLInputElement} */
@@ -206,13 +219,13 @@ class PlanItem extends HTMLElement {
 		for (const type of Object.keys(this.plan)) {
 			this[type + '_event'] = (e) => {
 				const value = e.target.value;
-				this._fireEvent('typing', type, value);
+				this.ontyping?.({ type, value });
 			};
 		}
 		// buton events
 		for (const type of Object.keys(this.action)) {
 			this[type + '_event'] = () => {
-				this._fireEvent(type);
+				this.onaction?.({ type });
 			};
 		}
 	}

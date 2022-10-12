@@ -9,23 +9,21 @@ export function setupListPlanView() {
 			/** @type {PlanItem} */
 			const planItemElement = document.createElement('plan-item');
 			planItemElement.item = plan;
-			planItemElement.addEventListener('typing', (e) => {
-				const { type, value } = e.detail;
+			planItemElement.ontyping = ({ type, value }) => {
 				plan[type] = value;
 				preparePlanUpdate(plan);
-			});
-			planItemElement.addEventListener('done', () => {
-				plan.done = !plan.done;
-				planItemElement.item = plan;
-				preparePlanUpdate(plan);
-			});
-			planItemElement.addEventListener('delete', async () => {
-				const ok = confirm(`Hapus rencana "${plan.title}"?`);
-				if (ok) {
+			};
+			planItemElement.onaction = ({ type }) => {
+				if (type === 'done') {
+					plan.done = !plan.done;
+					planItemElement.item = plan;
+					preparePlanUpdate(plan);
+				} else if (type === 'delete') {
 					// TODO: use custom confirm dialog
-					await deletePlan(plan.id);
+					const ok = confirm(`Hapus rencana "${plan.title}"?`);
+					if (ok) deletePlan(plan.id);
 				}
-			});
+			};
 			planBox.appendChild(planItemElement);
 		}
 		if (!plans.length) {
