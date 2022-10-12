@@ -9,10 +9,9 @@
 		<header>
 			<h1>
 				<button
-					id="sidebar-menu-button"
+					id="btn-show-sidebar"
 					class="material-symbols-outlined hover"
 					title="Tampilkan sidebar"
-					onclick="showSidebar()"
 				>
 					menu
 				</button>
@@ -21,14 +20,9 @@
 			<nav class="nav-main">
 				<ul>
 					<li>
-						<button
-							id="btn-add-new"
-							class="border-hand-drawn hover"
-							title="Tambahkan rencana baru"
-							onclick="addPlan()"
-						>
+						<button id="btn-new-plan" class="hover" title="Tambahkan rencana baru">
 							<span class="material-symbols-outlined">add</span>
-							Tambah
+							Baru
 						</button>
 					</li>
 				</ul>
@@ -36,16 +30,11 @@
 		</header>
 		<main>
 			<div id="content"></div>
-			<aside class="sidebar hidden">
-				<button
-					id="sidebar-close-button"
-					class="material-symbols-outlined hover"
-					title="Tutup sidebar"
-					onclick="hideSidebar()"
-				>
+			<aside id="sidebar-left" class="sidebar hidden">
+				<button id="btn-hide-sidebar" class="material-symbols-outlined hover" title="Tutup sidebar">
 					close
 				</button>
-				<article style="margin-top: 8px;">
+				<article style="margin-top: 8px">
 					<plan-filter />
 				</article>
 				<article class="about">
@@ -75,6 +64,7 @@
 				</article>
 			</aside>
 
+			<!-- TODO: extract to custom components -->
 			<div id="confirm-dialog-overlay">
 				<div id="confirm-dialog" class="border-hand-drawn">
 					<div style="margin: 4px 12px">

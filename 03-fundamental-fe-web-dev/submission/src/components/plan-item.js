@@ -1,4 +1,4 @@
-/** @typedef {import('../data/api').Plan} Plan */
+/** @typedef {import('../data/plan').Plan} Plan */
 
 const template = `
 <style>
@@ -13,6 +13,11 @@ const template = `
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+*::placeholder {
+	font-weight: initial;
+	color: #bbb;
 }
 
 article {
@@ -176,7 +181,7 @@ class PlanItem extends HTMLElement {
 		this._item = item ?? {};
 		this.plan.title.value = item.title;
 		this.plan.description.value = item.description;
-		this.plan.created_at.innerText = item.created_at;
+		this.plan.created_at.innerText = new Date(item.created_at).toLocaleString();
 		this.action.done.title = this._item.done ? 'Tandai belum selesai' : 'Tandai sudah selesai';
 		this.action.done.innerText = this._item.done ? 'task_alt' : 'circle';
 		this.shadow_root.children[1].className = this._item.done ? 'done' : '';
