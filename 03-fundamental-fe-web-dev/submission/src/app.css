@@ -109,6 +109,10 @@ main #plan-list-box {
 	min-height: 100vh;
 }
 
+plan-item {
+	width: 100%;
+}
+
 .nav-main li {
 	display: inline;
 }
@@ -159,6 +163,13 @@ a.button-link {
 	padding: 1px 6px;
 }
 
+@media (min-width: 640px) {
+	plan-item {
+		width: 0;
+		flex-basis: 50%;
+	}
+}
+
 @media (min-width: 1024px) {
 	main {
 		border: solid 1px #333;
@@ -178,7 +189,6 @@ a.button-link {
 		left: initial;
 		background-color: initial;
 		max-width: initial;
-		margin: 8px;
 		flex-basis: 25%;
 		height: 84vh;
 		padding: 0 8px;

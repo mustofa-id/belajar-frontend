@@ -27,8 +27,7 @@ article {
 	border-radius: var(--app-border-hand-drawn);
 	height: min-content;
 	transition: all 0.2s ease;
-	display: flex;
-	width: 100%;
+	display: flex;	
 	flex-direction: column;
 	justify-content: space-around;
 }
