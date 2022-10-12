@@ -79,8 +79,19 @@ footer {
 	height: 50px;
 }
 
+button,
+a {
+	cursor: pointer;
+}
+
 button:active {
 	opacity: 0.5;
+}
+
+button:hover:not(:disabled),
+a.button-link:hover {
+	color: var(--app-color-primary);
+	border-color: var(--app-color-primary);
 }
 
 button:disabled {
@@ -108,12 +119,6 @@ main #content {
 	padding: 6px 12px;
 	border: solid 1px transparent;
 	border-radius: var(--app-border-hand-drawn);
-}
-
-.hover:hover {
-	color: var(--app-color-primary);
-	border-color: var(--app-color-primary);
-	cursor: pointer;
 }
 
 aside.sidebar {
