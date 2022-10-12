@@ -11,5 +11,6 @@ export function setupNewPlanView() {
 			description: ''
 		});
 		btn_new_pan.disabled = false;
+		// TODO: focus to newly added plan element
 	};
 }
