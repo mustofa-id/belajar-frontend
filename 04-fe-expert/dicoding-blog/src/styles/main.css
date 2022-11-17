@@ -29,7 +29,7 @@ body {
 }
 
 .header__inner {
-	width: 800px;
+	width: 100%;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -48,7 +48,7 @@ body {
  */
 
 .nav {
-	width: 800px;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -66,11 +66,12 @@ body {
 	width: 24%;
 	text-align: center;
 	line-height: 24px;
-	padding: 24px;
 	text-transform: uppercase;
 }
 
 .nav a {
+	display: inline-block;
+	padding: 1.3em;
 	text-decoration: none;
 	color: #616161;
 }
@@ -118,7 +119,7 @@ body {
  */
 
 main {
-	width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -134,13 +135,8 @@ main {
  * headline
  */
 
-.headline {
-	overflow: auto;
-}
-
 .headline__figure {
-	width: 450px;
-	float: left;
+	width: 100%;
 }
 
 .headline__figure img {
@@ -156,8 +152,7 @@ main {
 }
 
 .headline__content {
-	width: 600px;
-	float: left;
+	width: 100%;
 	padding: 16px 32px;
 }
 
@@ -193,7 +188,7 @@ main {
  */
 
 .latest {
-	width: 1000px;
+	width: 100%;
 	margin: 60px auto;
 	text-align: center;
 }
@@ -217,7 +212,6 @@ main {
 .posts {
 	margin: 32px auto auto;
 	text-align: left;
-	overflow: auto;
 }
 
 /*
@@ -225,10 +219,9 @@ main {
  */
 
 .post-item {
-	float: left;
-	margin: 16px;
+	margin: 16px 0;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	width: 300px;
+	width: 100%;
 	border-radius: 5px;
 	overflow: hidden;
 }
@@ -297,6 +290,8 @@ footer li {
 }
 
 footer a {
+	display: inline-block;
+	padding: 1.3em;
 	text-decoration: none;
 	color: #fff;
 }
