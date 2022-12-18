@@ -5,7 +5,7 @@ $color-primary: forestgreen;
 
 .top-bar {
 	$this: &;
-	position: fixed;
+	position: absolute;
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
@@ -13,8 +13,10 @@ $color-primary: forestgreen;
 	padding: 0.5rem 1rem;
 
 	&[data-floating] {
+		position: fixed;
 		background-color: white;
 		border-bottom: solid 1px gray;
+		transition: all 0.2s ease-out;
 
 		#{$this}__brand,
 		#{$this}__menu a {

@@ -3,21 +3,16 @@ import data from '../DATA.json';
 import '../styles/index.scss';
 
 function setupTopBar() {
-	let timer;
-
 	const topBar = document.querySelector('.top-bar');
 	const hero = document.querySelector('.hero');
 
 	document.onscroll = () => {
-		if (timer) clearTimeout(timer);
-		timer = setTimeout(() => {
-			const rect = hero.getBoundingClientRect();
-			if (rect.bottom > 0) {
-				topBar.removeAttribute('data-floating');
-			} else {
-				topBar.setAttribute('data-floating', '');
-			}
-		}, 150);
+		const heroRect = hero.getBoundingClientRect();
+		if (heroRect.bottom > 24) {
+			topBar.removeAttribute('data-floating');
+		} else {
+			topBar.setAttribute('data-floating', '');
+		}
 	};
 }
 
