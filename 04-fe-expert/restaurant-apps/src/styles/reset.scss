@@ -16,6 +16,9 @@ figure {
 
 html:focus-within {
 	scroll-behavior: smooth;
+	@media (prefers-reduced-motion: reduce) {
+		scroll-behavior: auto;
+	}
 }
 
 body {
@@ -28,10 +31,4 @@ img,
 picture {
 	max-width: 100%;
 	display: block;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	html:focus-within {
-		scroll-behavior: auto;
-	}
 }
