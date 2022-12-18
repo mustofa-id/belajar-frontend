@@ -8,9 +8,9 @@ function setupTopBar() {
 	document.onscroll = () => {
 		const heroRect = hero.getBoundingClientRect();
 		if (heroRect.bottom > 24) {
-			topBar.removeAttribute('data-floating');
+			topBar.classList.remove('top-bar--fixed');
 		} else {
-			topBar.setAttribute('data-floating', '');
+			topBar.classList.add('top-bar--fixed');
 		}
 	};
 }
