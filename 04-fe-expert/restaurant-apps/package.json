@@ -6,7 +6,9 @@
 	"scripts": {
 		"dev": "webpack-dev-server --config webpack.dev.js",
 		"build": "webpack --config webpack.prod.js",
-		"test": "karma start"
+		"test": "karma start",
+		"format": "prettier --plugin-search-dir . --write .",
+		"lint": "prettier --plugin-search-dir . --check . && eslint ."
 	},
 	"keywords": [],
 	"author": "https://www.dicoding.com/users/mustofa-id",
@@ -17,7 +19,8 @@
 		"babel-loader": "^8.2.5",
 		"copy-webpack-plugin": "^11.0.0",
 		"css-loader": "^6.7.1",
-		"eslint": "^8.17.0",
+		"eslint": "^8.30.0",
+		"eslint-config-prettier": "^8.5.0",
 		"html-webpack-plugin": "^5.5.0",
 		"jasmine-ajax": "^4.0.0",
 		"jasmine-core": "^4.2.0",
@@ -27,16 +30,14 @@
 		"karma-jasmine": "^4.0.2",
 		"karma-sourcemap-loader": "^0.3.8",
 		"karma-webpack": "^5.0.0",
+		"prettier": "^2.8.1",
 		"sass": "^1.57.0",
 		"sass-loader": "^13.2.0",
 		"style-loader": "^3.3.1",
-		"webpack": "^5.73.0",
-		"webpack-cli": "^4.10.0",
+		"webpack": "^5.75.0",
+		"webpack-cli": "^5.0.1",
 		"webpack-dev-server": "^4.9.2",
 		"webpack-merge": "^5.8.0",
 		"whatwg-fetch": "^3.6.2"
-	},
-	"dependencies": {
-		"regenerator-runtime": "^0.13.9"
 	}
 }

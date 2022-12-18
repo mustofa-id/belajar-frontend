@@ -1,4 +1,3 @@
-import 'regenerator-runtime'; /* for async await transpile */
 import data from '../DATA.json';
 import '../styles/index.scss';
 
