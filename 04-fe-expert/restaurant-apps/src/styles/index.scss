@@ -1,4 +1,4 @@
-@import './reset.scss';
+@use './base.scss' as *;
 
 $hero-image: url('../public/images/heros/hero-image_2.jpg');
 $color-primary: forestgreen;
@@ -32,8 +32,13 @@ $color-primary: forestgreen;
 	}
 
 	&__menu a {
+		display: none;
 		text-decoration: none;
 		color: white;
+
+		@include sm {
+			display: initial;
+		}
 	}
 }
 
