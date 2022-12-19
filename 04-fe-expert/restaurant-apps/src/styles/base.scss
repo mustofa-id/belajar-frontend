@@ -14,6 +14,7 @@ figure {
 	margin: 0;
 }
 
+html,
 html:focus-within {
 	scroll-behavior: smooth;
 	@media (prefers-reduced-motion: reduce) {
