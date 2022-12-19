@@ -47,6 +47,10 @@ body {
 		#{$this}__menu {
 			top: 1.5rem;
 		}
+
+		#{$this}__menu a:hover {
+			color: white;
+		}
 	}
 
 	&__toggle {
@@ -109,12 +113,16 @@ body {
 		display: block;
 		font-size: large;
 		padding: 0.5rem 1rem;
+		transition: background-color 0.2s ease-in;
+
+		&:hover {
+			background-color: cadetblue;
+		}
 
 		@include md {
 			display: initial;
 			color: white;
 			font-size: initial;
-			padding: 0 1rem;
 		}
 	}
 }
@@ -165,11 +173,18 @@ body {
 		a {
 			display: inline-block;
 			text-decoration: none;
+			text-transform: uppercase;
+			font-weight: bold;
 			background: slategray;
 			color: white;
 			padding: 0.5rem 2rem;
 			margin-top: 1rem;
 			box-shadow: $shadow-lg;
+			transition: background-color 0.2s ease-in;
+
+			&:hover {
+				background-color: cadetblue;
+			}
 		}
 	}
 }
