@@ -3,7 +3,14 @@ import '../styles/index.scss';
 
 function setupTopBar() {
 	const topBar = document.querySelector('.top-bar');
+	const topBarToggle = /** @type {HTMLButtonElement} */ (topBar.querySelector('.top-bar__toggle'));
+	const topBarMenu = topBar.querySelector('.top-bar__menu');
 	const hero = document.querySelector('.hero');
+
+	topBarToggle.onclick = () => {
+		topBarMenu.classList.toggle('top-bar__menu--shown');
+		console.log('toggle');
+	};
 
 	document.onscroll = () => {
 		const heroRect = hero.getBoundingClientRect();

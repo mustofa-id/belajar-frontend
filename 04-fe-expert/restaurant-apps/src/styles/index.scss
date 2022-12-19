@@ -1,16 +1,20 @@
 @use './base.scss' as *;
 
 $hero-image: url('../public/images/heros/hero-image_2.jpg');
-$color-primary: forestgreen;
 
 .top-bar {
 	$this: &;
 	position: absolute;
-	display: flex;
 	width: 100%;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0.5rem 1rem;
+
+	section {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: $screen-lg;
+		padding: 0.5rem 1rem;
+		margin: 0 auto;
+	}
 
 	&--fixed {
 		position: fixed;
@@ -20,24 +24,73 @@ $color-primary: forestgreen;
 		left: 0;
 		top: 0;
 
+		#{$this}__toggle,
 		#{$this}__brand,
 		#{$this}__menu a {
 			color: gray;
 		}
 	}
 
+	&__toggle {
+		background: none;
+		border: none;
+		padding: 0;
+		outline: inherit;
+		cursor: pointer;
+		color: white;
+		padding: 0 0.5rem;
+
+		svg {
+			fill: currentColor;
+		}
+
+		@include md {
+			display: none;
+		}
+	}
+
 	&__brand {
 		font-family: monospace;
 		color: white;
+		padding: 0 0.5rem;
+	}
+
+	&__menu {
+		display: none;
+		background: white;
+		padding: 1rem;
+		position: absolute;
+		top: 1.25rem;
+		right: 0;
+		margin: 1rem;
+		border: solid 1px grey;
+
+		&--shown {
+			display: initial;
+		}
+
+		@include md {
+			display: initial;
+			position: initial;
+			background: none;
+			border: none;
+			margin: 0;
+			padding: 0;
+		}
 	}
 
 	&__menu a {
-		display: none;
 		text-decoration: none;
-		color: white;
+		color: grey;
+		display: block;
+		font-size: large;
+		padding: 0.5rem 1rem;
 
-		@include sm {
+		@include md {
 			display: initial;
+			color: white;
+			font-size: initial;
+			padding: 0 1rem;
 		}
 	}
 }
