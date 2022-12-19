@@ -36,26 +36,31 @@ picture {
 }
 
 // Screen sizes reference: https://tailwindcss.com/docs/screens
+$screen-sm: 640px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1280px;
+
 @mixin sm {
-	@media screen and (min-width: 640px) {
+	@media screen and (min-width: $screen-sm) {
 		@content;
 	}
 }
 
 @mixin md {
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: $screen-md) {
 		@content;
 	}
 }
 
 @mixin lg {
-	@media screen and (min-width: 1024px) {
+	@media screen and (min-width: $screen-lg) {
 		@content;
 	}
 }
 
 @mixin xl {
-	@media screen and (min-width: 1280px) {
+	@media screen and (min-width: $screen-xl) {
 		@content;
 	}
 }
