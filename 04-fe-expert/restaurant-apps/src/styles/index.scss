@@ -1,6 +1,12 @@
 @use './base.scss' as *;
 
 $hero-image: url('../public/images/heros/hero-image_2.jpg');
+$color-gray: rgb(196, 196, 196);
+$shadow-lg: 0 8px 16px rgb(0 0 0 / 16%), 0 6px 6px rgb(0 0 0 / 23%);
+
+body {
+	background: #f5f5f5;
+}
 
 .top-bar {
 	$this: &;
@@ -19,7 +25,7 @@ $hero-image: url('../public/images/heros/hero-image_2.jpg');
 	&--fixed {
 		position: fixed;
 		background-color: white;
-		border-bottom: solid 1px gray;
+		box-shadow: 0 0 20px rgb(0 0 0 / 11%);
 		transition: all 0.2s ease-out;
 		left: 0;
 		top: 0;
@@ -63,7 +69,8 @@ $hero-image: url('../public/images/heros/hero-image_2.jpg');
 		top: 1.25rem;
 		right: 0;
 		margin: 1rem;
-		border: solid 1px grey;
+		border: solid 1px $color-gray;
+		box-shadow: $shadow-lg;
 
 		&--shown {
 			display: initial;
@@ -74,6 +81,7 @@ $hero-image: url('../public/images/heros/hero-image_2.jpg');
 			position: initial;
 			background: none;
 			border: none;
+			box-shadow: none;
 			margin: 0;
 			padding: 0;
 		}
@@ -107,10 +115,38 @@ $hero-image: url('../public/images/heros/hero-image_2.jpg');
 	padding: 1rem;
 	display: grid;
 	gap: 1rem;
+	max-width: $screen-xl;
+
+	@include sm {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include lg {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	@include xl {
+		margin: 0 auto;
+	}
 
 	article {
-		border: solid 1px gray;
+		background: white;
+		border: solid 1px $color-gray;
 		padding: 1rem;
+		transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+		box-shadow: 0 0 20px rgb(0 0 0 / 11%), 0 1px 2px rgb(0 0 0 / 18%);
+
+		&:hover {
+			box-shadow: $shadow-lg;
+		}
+
+		p {
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 5;
+			line-clamp: 5;
+		}
 	}
 }
 
