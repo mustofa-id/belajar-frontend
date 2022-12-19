@@ -9,7 +9,6 @@ function setupTopBar() {
 
 	topBarToggle.onclick = () => {
 		topBarMenu.classList.toggle('top-bar__menu--shown');
-		console.log('toggle');
 	};
 
 	document.onscroll = () => {
