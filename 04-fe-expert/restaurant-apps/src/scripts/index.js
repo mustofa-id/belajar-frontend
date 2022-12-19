@@ -18,6 +18,7 @@ function setupTopBar() {
 		} else {
 			topBar.classList.add('top-bar--fixed');
 		}
+		topBarMenu.classList.remove('top-bar__menu--shown');
 	};
 }
 
