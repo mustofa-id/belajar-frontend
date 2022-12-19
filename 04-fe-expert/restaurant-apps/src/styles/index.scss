@@ -63,7 +63,7 @@ body {
 		}
 
 		#{$this}__menu {
-			top: 1.5rem;
+			top: 3rem;
 		}
 
 		#{$this}__menu a:hover {
@@ -90,8 +90,8 @@ body {
 	}
 
 	&__brand {
-		width: 48px;
-		height: 24px;
+		width: 72px;
+		height: 36px;
 		margin: 0 1rem;
 		background-color: white;
 		-webkit-mask: $brand-logo no-repeat center;
@@ -102,9 +102,9 @@ body {
 		display: none;
 		background: white;
 		font-weight: bold;
-		padding: 1rem;
+		padding: 1rem 0;
 		position: absolute;
-		top: 2.5rem;
+		top: 3.8rem;
 		right: 0;
 		margin: 1rem;
 		border: solid 1px azure;
@@ -130,7 +130,7 @@ body {
 		color: grey;
 		display: block;
 		font-size: large;
-		padding: 0.5rem 1rem;
+		padding: 0.75rem 1.5rem;
 		transition: background-color 0.2s ease-in;
 
 		&:hover {
@@ -140,7 +140,6 @@ body {
 		@include md {
 			display: initial;
 			color: white;
-			font-size: initial;
 		}
 	}
 }
@@ -193,13 +192,17 @@ body {
 			font-weight: bold;
 			background: slategray;
 			color: white;
-			padding: 0.5rem 2rem;
+			padding: 1rem 2.5rem;
 			margin-top: 1rem;
 			box-shadow: $shadow-lg;
 			transition: background-color 0.2s ease-in;
 
 			&:hover {
 				background-color: cadetblue;
+			}
+
+			@include lg {
+				font-size: large;
 			}
 		}
 	}
