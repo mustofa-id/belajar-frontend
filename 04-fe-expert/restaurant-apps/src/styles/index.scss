@@ -142,7 +142,7 @@ body {
 			@include md {
 				font-size: 3.5rem;
 			}
-		
+
 			@include lg {
 				font-size: 4.5rem;
 			}
@@ -156,7 +156,7 @@ body {
 			@include md {
 				font-size: 1.5rem;
 			}
-			
+
 			@include lg {
 				font-size: 1.75rem;
 			}
@@ -175,10 +175,10 @@ body {
 }
 
 .restaurants {
-	padding: 1rem;
 	display: grid;
 	gap: 1rem;
 	max-width: $screen-xl;
+	padding: 1rem 1rem 0;
 
 	@include sm {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -190,6 +190,7 @@ body {
 
 	@include xl {
 		margin: 0 auto;
+		padding: 2.5rem 1rem 0;
 	}
 
 	article {
@@ -203,18 +204,38 @@ body {
 			box-shadow: $shadow-lg;
 		}
 
+		img {
+			width: 100%;
+			height: 16rem;
+			object-fit: cover;
+			margin-bottom: 0.5rem;
+		}
+
+		h3 {
+			color: darkslategray;
+		}
+
+		span {
+			color: darkgoldenrod;
+		}
+
 		p {
 			overflow: hidden;
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
 			-webkit-line-clamp: 5;
 			line-clamp: 5;
+			color: dimgrey;
 		}
 	}
 }
 
 .bottom-bar {
 	padding: 1rem 2rem;
+
+	@include md {
+		padding: 2rem;
+	}
 
 	p {
 		text-align: center;

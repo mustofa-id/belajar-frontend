@@ -28,7 +28,7 @@ function loadRestaurants() {
 		card.innerHTML = `
 			<img src="${r.pictureId}" alt="Image of ${r.name} at ${r.city} city" loading="lazy"/>
 			<h2>${r.name}</h2>
-			<h3>${r.city} &bullet; ${r.rating} &star;</h2>
+			<h3>${r.city} &bullet; <span>${r.rating} &star;</span></h2>
 			<p>${r.description}</p>
 		`;
 		restaurantContainer.appendChild(card);
